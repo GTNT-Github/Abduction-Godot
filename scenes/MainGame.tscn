@@ -495,24 +495,23 @@ smoothing_enabled = true
 [node name="Items" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="HeathPotion" type="Sprite" parent="Items"]
+[node name="HealthPotion" type="Sprite" parent="Items"]
 position = Vector2( 409, 211 )
 scale = Vector2( 1.25, 1.25 )
 z_index = 1
 texture = ExtResource( 6 )
 
-[node name="ItemArea" type="Area2D" parent="Items/HeathPotion"]
+[node name="ItemArea" type="Area2D" parent="Items/HealthPotion"]
 collision_layer = 8
 collision_mask = 3
 
-[node name="ItemCollision" type="CollisionShape2D" parent="Items/HeathPotion/ItemArea"]
+[node name="ItemCollision" type="CollisionShape2D" parent="Items/HealthPotion/ItemArea"]
 shape = SubResource( 48 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 119, 264 )
-scale = Vector2( 0.5, 0.5 )
 z_index = 2
 script = ExtResource( 3 )
 
-[connection signal="area_entered" from="Items/HeathPotion/ItemArea" to="Items" method="itemCollision" binds= [ true, "HealthPotion" ]]
-[connection signal="body_entered" from="Items/HeathPotion/ItemArea" to="Items" method="itemCollision" binds= [ true, "HealthPotion" ]]
+[connection signal="area_entered" from="Items/HealthPotion/ItemArea" to="Items" method="itemCollision" binds= [ true, "HealthPotion" ]]
+[connection signal="body_entered" from="Items/HealthPotion/ItemArea" to="Items" method="itemCollision" binds= [ true, "HealthPotion" ]]
