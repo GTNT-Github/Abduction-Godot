@@ -1,0 +1,9 @@
+C:\Users\graem\Desktop\Abduction\.mono\temp\obj\Debug\Abduction.csproj.AssemblyReference.cache
+C:\Users\graem\Desktop\Abduction\.mono\temp\obj\Debug\Abduction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\graem\Desktop\Abduction\.mono\temp\obj\Debug\Abduction.AssemblyInfoInputs.cache
+C:\Users\graem\Desktop\Abduction\.mono\temp\obj\Debug\Abduction.AssemblyInfo.cs
+C:\Users\graem\Desktop\Abduction\.mono\temp\obj\Debug\Abduction.csproj.CoreCompileInputs.cache
+C:\Users\graem\Desktop\Abduction\.mono\temp\bin\Debug\Abduction.dll
+C:\Users\graem\Desktop\Abduction\.mono\temp\bin\Debug\Abduction.pdb
+C:\Users\graem\Desktop\Abduction\.mono\temp\obj\Debug\Abduction.dll
+C:\Users\graem\Desktop\Abduction\.mono\temp\obj\Debug\Abduction.pdb
