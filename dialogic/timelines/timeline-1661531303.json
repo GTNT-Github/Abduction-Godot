@@ -5,6 +5,11 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Stand over an item and press [color=#8b0000]Enter or Space[/color] to pick it up"
+		},
+		{
+			"custom_slot": "",
+			"event_id": "dialogic_026",
+			"use_default_slot": true
 		}
 	],
 	"metadata": {
