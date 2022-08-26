@@ -2,7 +2,7 @@ extends Node
 
 var selectedSign
 
-func itemCollision(body: Node, entered: bool, targetSign: String) -> void:
+func signCollision(body: Node, entered: bool, targetSign: String) -> void:
 	if entered:
 		selectedSign = targetSign
 	else:

@@ -445,5 +445,5 @@ smoothing_enabled = true
 
 [connection signal="area_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
 [connection signal="body_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
-[connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="itemCollision" binds= [ true, "Shield" ]]
-[connection signal="body_entered" from="Signs/Shield/ItemArea" to="Signs" method="itemCollision" binds= [ true, "Shield" ]]
+[connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
+[connection signal="body_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]

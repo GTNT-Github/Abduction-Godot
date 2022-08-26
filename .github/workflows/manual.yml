@@ -1,4 +1,4 @@
-name: Godot Build
+name: Build Godot
 
 on:
   push: {}
@@ -9,20 +9,24 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: [Linux, Windows, MacOS]
+        platform:
+        - name: Windows
+          file: Game.exe
+        - name: MacOS
+          file: Game.zip
+        - name: Linux
+          file: Game.zip
     steps:
       - uses: actions/checkout@v2
-        with:
-          lfs: true
       - name: Build
         id: build
         uses: manleydev/build-godot-action@v1.4.1
         with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
+          name: ${{ matrix.platform.file }}
+          preset: ${{ matrix.platform.name }}
+          debugMode: false
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Client - ${{ matrix.platform }}
+          name: Game - ${{ matrix.platform.name }}
           path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
