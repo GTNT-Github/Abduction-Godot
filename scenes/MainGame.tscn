@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Items.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scripts/backend.gd" type="Script" id=4]
 [ext_resource path="res://assets/tilemap/cell.png" type="Texture" id=5]
 [ext_resource path="res://assets/items/sheild.png" type="Texture" id=6]
+[ext_resource path="res://assets/misc/sign.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Signs.gd" type="Script" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -412,13 +414,13 @@ collision_mask = 3
 shape = SubResource( 48 )
 
 [node name="Signs" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource( 8 )
 
 [node name="Shield" type="Sprite" parent="Signs"]
-position = Vector2( 456, 211 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 360, 163 )
+scale = Vector2( 2, 2 )
 z_index = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="ItemArea" type="Area2D" parent="Signs/Shield"]
 collision_layer = 8
