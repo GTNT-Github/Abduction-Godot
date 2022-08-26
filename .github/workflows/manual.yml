@@ -11,11 +11,11 @@ jobs:
       matrix:
         platform:
         - name: Windows
-          file: Game.exe
+          file: Abduction.exe
         - name: MacOS
-          file: Game.dmg
+          file: Abduction.zip
         - name: Linux
-          file: Game.x86_64
+          file: Abduction.x86_64
     steps:
       - uses: actions/checkout@v2
       - name: Build
