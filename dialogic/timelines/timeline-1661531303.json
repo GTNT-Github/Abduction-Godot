@@ -4,7 +4,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Stand over an item and press [color=#8b0000]Enter[/color] to pick it up"
+			"text": "Stand over an item and press [color=#8b0000]Enter or Space[/color] to pick it up"
 		}
 	],
 	"metadata": {

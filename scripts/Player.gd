@@ -4,6 +4,7 @@ var faceLeft: bool = true
 
 
 func _process(delta: float) -> void:
+
 	var velocity: Vector2 = getInput()
 	move_and_slide(velocity*speed)
 

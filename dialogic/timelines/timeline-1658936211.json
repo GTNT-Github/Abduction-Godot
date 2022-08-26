@@ -27,8 +27,18 @@
 			"value": ""
 		},
 		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You picked up a shield!"
+		},
+		{
 			"emit_signal": "Shield",
 			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
 		},
 		{
 			"choice": "No",

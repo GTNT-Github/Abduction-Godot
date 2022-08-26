@@ -13,9 +13,9 @@ jobs:
         - name: Windows
           file: Game.exe
         - name: MacOS
-          file: Game.zip
+          file: Game.dmg
         - name: Linux
-          file: Game.zip
+          file: Game.x86_64
     steps:
       - uses: actions/checkout@v2
       - name: Build

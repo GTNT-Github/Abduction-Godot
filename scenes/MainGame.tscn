@@ -444,6 +444,8 @@ zoom = Vector2( 0.75, 0.75 )
 smoothing_enabled = true
 
 [connection signal="area_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
+[connection signal="area_exited" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield" ]]
 [connection signal="body_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
 [connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
+[connection signal="area_exited" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ false, "SpawnSign" ]]
 [connection signal="body_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
