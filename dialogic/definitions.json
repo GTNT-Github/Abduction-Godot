@@ -3,6 +3,11 @@
 
 	],
 	"variables": [
-
+		{
+			"id": "1661477242-648",
+			"name": "InventorySize",
+			"type": 0,
+			"value": "1"
+		}
 	]
 }

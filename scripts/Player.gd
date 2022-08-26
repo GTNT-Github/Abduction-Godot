@@ -4,8 +4,6 @@ var faceLeft: bool = true
 
 
 func _process(delta: float) -> void:
-	print("==================")
-	print(Values.inventory)
 	var velocity: Vector2 = getInput()
 	move_and_slide(velocity*speed)
 
@@ -27,6 +25,8 @@ func getInput() -> Vector2:
 		velocity.x -= 1
 		animation = "walk"
 		faceLeft = true
+	animatedSprite.flip_h = faceLeft
 	if animation != animatedSprite.animation:
 		animatedSprite.play(animation)
+		animatedSprite.flip_h = faceLeft
 	return velocity

@@ -7,6 +7,7 @@ scn/
 override.cfg
 
 # Godot-specific ignores
-/.import
-/.vs
-/.mono
+.import/
+.vs/
+.mono/
+Exports/

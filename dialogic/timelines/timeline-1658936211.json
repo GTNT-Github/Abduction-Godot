@@ -5,15 +5,64 @@
 			"set_theme": "default-theme.cfg"
 		},
 		{
+			"condition": "<",
+			"definition": "1661477242-648",
+			"event_id": "dialogic_012",
+			"value": "5"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Do you want to up a shield?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "Shield",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": ">=",
+			"definition": "1661477242-648",
+			"event_id": "dialogic_012",
+			"value": "5"
+		},
+		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You picked up a Health Potion!"
+			"text": "Your inventory is full!"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.3",
 		"file": "timeline-1658936211.json",
-		"name": "HealthPotion"
+		"name": "Shield"
 	}
 }
