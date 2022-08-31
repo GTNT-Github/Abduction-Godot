@@ -15,10 +15,10 @@ func _input(event: InputEvent) -> void:
 		add_child(dialouge)
 
 func itemAccepted(item:String):
-	for n in Values.inventory.size():
-		var invValue = Values.inventory[n]
+	for n in InvFunctions.inventory.size():
+		var invValue = InvFunctions.inventory[n]
 		if invValue == "-----":
-			Values.inventory[n] = selectedItem
+			InvFunctions.inventory[n] = selectedItem
 			Dialogic.set_variable("InventorySize",n+1)
 			remove_child(get_node(selectedItem))
 			selectedItem = null

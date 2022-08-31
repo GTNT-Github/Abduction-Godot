@@ -94,6 +94,7 @@ config/icon="res://icon.png"
 
 Values="*res://scripts/values.gd"
 Preloads="*res://scripts/preloads.gd"
+InvFunctions="*res://scripts/InvFunctions.gd"
 
 [display]
 
