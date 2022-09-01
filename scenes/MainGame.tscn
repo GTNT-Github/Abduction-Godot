@@ -1,15 +1,16 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Items.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://scripts/backend.gd" type="Script" id=4]
+[ext_resource path="res://scripts/Backend.gd" type="Script" id=4]
 [ext_resource path="res://assets/tilemap/cell.png" type="Texture" id=5]
 [ext_resource path="res://assets/items/sheild.png" type="Texture" id=6]
 [ext_resource path="res://assets/misc/sign.png" type="Texture" id=7]
 [ext_resource path="res://scripts/Signs.gd" type="Script" id=8]
 [ext_resource path="res://assets/misc/inventoryBackground.png" type="Texture" id=9]
 [ext_resource path="res://assets/fonts/defaultFont.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scripts/InvUI.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -378,7 +379,10 @@ extents = Vector2( 8, 8 )
 
 [sub_resource type="DynamicFont" id=49]
 size = 100
-extra_spacing_bottom = 55
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=50]
+size = 60
 font_data = ExtResource( 10 )
 
 [node name="MainGame" type="Node2D"]
@@ -442,6 +446,7 @@ z_index = 2
 script = ExtResource( 3 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -2, -40 )
@@ -452,93 +457,205 @@ smoothing_enabled = true
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 
-[node name="Background" type="NinePatchRect" parent="Inventory"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Background" type="Sprite" parent="Inventory"]
+position = Vector2( 0, 360 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 9 )
+offset = Vector2( 640, 0 )
+script = ExtResource( 11 )
 
 [node name="Name" type="Label" parent="Inventory/Background"]
 anchor_left = 0.004
-anchor_top = 0.038
+anchor_top = 0.042
 anchor_right = 0.149
-anchor_bottom = 0.073
-margin_left = -150.12
-margin_top = -37.36
-margin_right = 407.28
-margin_bottom = 37.44
+anchor_bottom = 0.076
+margin_left = -5.12
+margin_top = -360.24
+margin_right = 554.28
+margin_bottom = -284.72
 rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 200, 50 )
+rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
 text = "GTNT"
 align = 1
+valign = 1
 
 [node name="HP" type="Label" parent="Inventory/Background"]
 anchor_left = 0.004
-anchor_top = 0.038
+anchor_top = 0.083
 anchor_right = 0.149
-anchor_bottom = 0.073
-margin_left = -150.12
-margin_top = 2.64
-margin_right = 407.28
-margin_bottom = 77.44
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = -349.76
+margin_right = 554.28
+margin_bottom = -274.96
 rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 200, 50 )
+rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
 text = "100/100"
 align = 1
+valign = 1
 
 [node name="Armor" type="Label" parent="Inventory/Background"]
 anchor_left = 0.004
-anchor_top = 0.038
+anchor_top = 0.083
 anchor_right = 0.149
-anchor_bottom = 0.073
-margin_left = -150.12
-margin_top = 82.64
-margin_right = 407.28
-margin_bottom = 320.44
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = -269.76
+margin_right = 554.28
+margin_bottom = -194.96
 rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 200, 50 )
+rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
-text = "Armor
------"
+text = "Armor"
 align = 1
+valign = 1
+
+[node name="ArmorSlot" type="Label" parent="Inventory/Background"]
+anchor_left = 0.004
+anchor_top = 0.083
+anchor_right = 0.149
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = -229.76
+margin_right = 554.28
+margin_bottom = -133.26
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
 
 [node name="Weapon" type="Label" parent="Inventory/Background"]
 anchor_left = 0.004
-anchor_top = 0.038
+anchor_top = 0.083
 anchor_right = 0.149
-anchor_bottom = 0.073
-margin_left = -150.12
-margin_top = 202.64
-margin_right = 407.28
-margin_bottom = 490.44
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = -149.76
+margin_right = 554.28
+margin_bottom = -74.96
 rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 200, 50 )
+rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
-text = "Weapon
------"
+text = "Weapon"
 align = 1
+valign = 1
 
-[node name="Inventory" type="Label" parent="Inventory/Background"]
+[node name="WeaponSlot" type="Label" parent="Inventory/Background"]
 anchor_left = 0.004
-anchor_top = 0.038
+anchor_top = 0.083
 anchor_right = 0.149
-anchor_bottom = 0.073
-margin_left = -150.12
-margin_top = 322.64
-margin_right = 407.28
-margin_bottom = 1400.44
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = -109.76
+margin_right = 554.28
+margin_bottom = -13.26
 rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 200, 50 )
-custom_fonts/font = SubResource( 49 )
-text = "Items
------
------
------
------
------
------"
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
 align = 1
+valign = 1
+
+[node name="Items" type="Label" parent="Inventory/Background"]
+anchor_left = 0.004
+anchor_top = 0.083
+anchor_right = 0.149
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = -29.76
+margin_right = 554.28
+margin_bottom = 45.04
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 49 )
+text = "Items"
+align = 1
+valign = 1
+
+[node name="InvSlot1" type="Label" parent="Inventory/Background"]
+anchor_left = 0.004
+anchor_top = 0.083
+anchor_right = 0.149
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = 10.24
+margin_right = 554.28
+margin_bottom = 106.74
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 7, 0 )
+custom_colors/font_color = Color( 0.207843, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot2" type="Label" parent="Inventory/Background"]
+anchor_left = 0.004
+anchor_top = 0.083
+anchor_right = 0.149
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = 50.24
+margin_right = 554.28
+margin_bottom = 146.74
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot3" type="Label" parent="Inventory/Background"]
+anchor_left = 0.004
+anchor_top = 0.083
+anchor_right = 0.149
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = 90.24
+margin_right = 554.28
+margin_bottom = 186.74
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot4" type="Label" parent="Inventory/Background"]
+anchor_left = 0.004
+anchor_top = 0.083
+anchor_right = 0.149
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = 130.24
+margin_right = 554.28
+margin_bottom = 226.74
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot5" type="Label" parent="Inventory/Background"]
+anchor_left = 0.004
+anchor_top = 0.083
+anchor_right = 0.149
+anchor_bottom = 0.118
+margin_left = -5.12
+margin_top = 170.24
+margin_right = 554.28
+margin_bottom = 266.74
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
 
 [connection signal="area_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
 [connection signal="area_exited" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield" ]]

@@ -11,7 +11,7 @@ func getInput() -> Vector2:
 	var animatedSprite = get_node("Sprite")
 	var velocity: Vector2 = Vector2.ZERO
 	var animation: String = "idle"
-	if !Dialogic.has_current_dialog_node():
+	if GeneralFunc.checkUI():
 		if Input.is_action_pressed("ui_up"):
 			velocity.y -= 1
 			animation = "walk"
