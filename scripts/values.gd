@@ -6,11 +6,13 @@ var weapon:String = "-----"
 
 var invOpen:bool = false
 var selectedItem
-
+var selectedSign
 var itemTypes = {
-	"Shield" : "Armor"
+	"Shield" : "Armor",
+	"Shield2" : "Armor"
 }
 
 var itemStats = {
-	"Shield" : 10
+	"Shield" : 10,
+	"Shield2" : 10
 }

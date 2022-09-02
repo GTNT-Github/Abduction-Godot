@@ -424,6 +424,19 @@ collision_mask = 3
 [node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield/ItemArea"]
 shape = SubResource( 48 )
 
+[node name="Shield2" type="Sprite" parent="Items"]
+position = Vector2( 408, 211 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+texture = ExtResource( 6 )
+
+[node name="ItemArea" type="Area2D" parent="Items/Shield2"]
+collision_layer = 8
+collision_mask = 3
+
+[node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield2/ItemArea"]
+shape = SubResource( 48 )
+
 [node name="Signs" type="Node" parent="."]
 script = ExtResource( 8 )
 
@@ -587,7 +600,6 @@ margin_right = 554.28
 margin_bottom = 106.74
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
-custom_colors/font_color = Color( 0.207843, 0.207843, 0.207843, 1 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
 align = 1
@@ -659,7 +671,7 @@ valign = 1
 
 [connection signal="area_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
 [connection signal="area_exited" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield" ]]
-[connection signal="body_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
+[connection signal="area_entered" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield2" ]]
+[connection signal="area_exited" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield2" ]]
 [connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
 [connection signal="area_exited" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ false, "SpawnSign" ]]
-[connection signal="body_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]

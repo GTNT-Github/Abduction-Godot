@@ -17,7 +17,7 @@
 
 			],
 			"portrait": "",
-			"question": "Do you want to up a shield?"
+			"question": "Do you want to up a shield2?"
 		},
 		{
 			"choice": "Yes",
@@ -30,10 +30,10 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You picked up a shield!"
+			"text": "You picked up a Shield2"
 		},
 		{
-			"emit_signal": "Shield",
+			"emit_signal": "Shield2",
 			"event_id": "dialogic_040"
 		},
 		{
@@ -56,23 +56,11 @@
 		},
 		{
 			"event_id": "dialogic_013"
-		},
-		{
-			"condition": ">=",
-			"definition": "1661477242-648",
-			"event_id": "dialogic_012",
-			"value": "5"
-		},
-		{
-			"character": "",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Your inventory is full!"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.3",
-		"file": "timeline-1658936211.json",
-		"name": "Shield"
+		"file": "timeline-1662132796.json",
+		"name": "Shield2"
 	}
 }
