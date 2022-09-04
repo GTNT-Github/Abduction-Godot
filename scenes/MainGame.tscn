@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Items.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/misc/inventoryBackground.png" type="Texture" id=9]
 [ext_resource path="res://assets/fonts/defaultFont.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://scripts/InvUI.gd" type="Script" id=11]
+[ext_resource path="res://scenes/FightUI.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -374,9 +375,6 @@ points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=48]
-extents = Vector2( 8, 8 )
-
 [sub_resource type="DynamicFont" id=49]
 size = 100
 font_data = ExtResource( 10 )
@@ -384,6 +382,12 @@ font_data = ExtResource( 10 )
 [sub_resource type="DynamicFont" id=50]
 size = 60
 font_data = ExtResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 72, 24 )
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource( 4 )
@@ -407,66 +411,6 @@ tile_set = SubResource( 4 )
 cell_size = Vector2( 48, 48 )
 format = 1
 tile_data = PoolIntArray( 131173, 1, 0, 131174, 0, 589824, 131175, 0, 65537, 131176, 0, 65537, 131177, 0, 65537, 131178, 0, 65537, 131179, 0, 65537, 131180, 0, 65537, 131181, 0, 65537, 131182, 0, 65537, 131183, 0, 65537, 131184, 0, 65537, 131185, 0, 65537, 131186, 0, 65537, 131187, 0, 65537, 196709, 3, 0, 196710, 0, 65536, 196711, 0, 65537, 196712, 0, 65537, 196713, 0, 65537, 196714, 0, 65537, 196715, 0, 65537, 196716, 0, 65537, 196717, 0, 65537, 196718, 0, 65537, 196719, 0, 65537, 196720, 0, 65537, 196721, 0, 65537, 196722, 0, 65537, 196723, 0, 65537, 262245, 3, 0, 262246, 0, 65536, 262247, 0, 65537, 262248, 0, 65537, 262249, 0, 65537, 262250, 0, 65537, 262251, 0, 65537, 262252, 0, 65537, 262253, 0, 65537, 262254, 0, 65537, 262255, 0, 65537, 262256, 0, 65537, 262257, 0, 65537, 262258, 0, 65537, 262259, 0, 65537, 327781, 3, 0, 327782, 0, 65536, 327783, 0, 65537, 327784, 0, 65537, 327785, 0, 65537, 327786, 0, 65537, 327787, 0, 65537, 327788, 0, 65537, 327789, 0, 65537, 327790, 0, 65537, 327791, 0, 65537, 327792, 0, 65537, 327793, 0, 65537, 327794, 0, 65537, 327795, 0, 65537, 393317, 3, 0, 393318, 0, 65536, 393319, 0, 65537, 393320, 0, 65537, 393321, 0, 65537, 393322, 0, 65537, 393323, 0, 65537, 393324, 0, 65537, 393325, 0, 65537, 393326, 0, 65537, 393327, 0, 65537, 393328, 0, 65537, 393329, 0, 65537, 393330, 0, 65537, 393331, 0, 65537, 458853, 3, 0, 458854, 0, 65536, 458855, 0, 65537, 458856, 0, 65537, 458857, 0, 65537, 458858, 0, 65537, 458859, 0, 65537, 458860, 0, 65537, 458861, 0, 65537, 458862, 0, 65537, 458863, 0, 65537, 458864, 0, 65537, 458865, 0, 65537, 458866, 0, 65537, 458867, 0, 65537, 524389, 2, 0, 524390, 0, 589825, 524391, 0, 65537, 524392, 0, 65537, 524393, 0, 65537, 524394, 0, 65537, 524395, 0, 65537, 524396, 0, 65537, 524397, 0, 65537, 524398, 0, 65537, 524399, 0, 65537, 524400, 0, 65537, 524401, 0, 65537, 524402, 0, 65537, 524403, 0, 65537 )
-
-[node name="Items" type="Node" parent="."]
-script = ExtResource( 2 )
-
-[node name="Shield" type="Sprite" parent="Items"]
-position = Vector2( 456, 211 )
-scale = Vector2( 1.5, 1.5 )
-z_index = 1
-texture = ExtResource( 6 )
-
-[node name="ItemArea" type="Area2D" parent="Items/Shield"]
-collision_layer = 8
-collision_mask = 3
-
-[node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield/ItemArea"]
-shape = SubResource( 48 )
-
-[node name="Shield2" type="Sprite" parent="Items"]
-position = Vector2( 408, 211 )
-scale = Vector2( 1.5, 1.5 )
-z_index = 1
-texture = ExtResource( 6 )
-
-[node name="ItemArea" type="Area2D" parent="Items/Shield2"]
-collision_layer = 8
-collision_mask = 3
-
-[node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield2/ItemArea"]
-shape = SubResource( 48 )
-
-[node name="Signs" type="Node" parent="."]
-script = ExtResource( 8 )
-
-[node name="Shield" type="Sprite" parent="Signs"]
-position = Vector2( 360, 163 )
-scale = Vector2( 2, 2 )
-z_index = 1
-texture = ExtResource( 7 )
-
-[node name="ItemArea" type="Area2D" parent="Signs/Shield"]
-collision_layer = 8
-collision_mask = 3
-
-[node name="ItemCollision" type="CollisionShape2D" parent="Signs/Shield/ItemArea"]
-shape = SubResource( 48 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 119, 264 )
-z_index = 2
-script = ExtResource( 3 )
-
-[node name="Camera" type="Camera2D" parent="Player"]
-visible = false
-modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -2, -40 )
-scale = Vector2( 2, 2 )
-current = true
-zoom = Vector2( 0.75, 0.75 )
-smoothing_enabled = true
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 
@@ -669,9 +613,82 @@ text = "-----"
 align = 1
 valign = 1
 
+[node name="FightUI" parent="Inventory" instance=ExtResource( 12 )]
+
+[node name="Items" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Shield" type="Sprite" parent="Items"]
+position = Vector2( 456, 211 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+texture = ExtResource( 6 )
+
+[node name="ItemArea" type="Area2D" parent="Items/Shield"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield/ItemArea"]
+shape = SubResource( 48 )
+
+[node name="Shield2" type="Sprite" parent="Items"]
+position = Vector2( 408, 211 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+texture = ExtResource( 6 )
+
+[node name="ItemArea" type="Area2D" parent="Items/Shield2"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield2/ItemArea"]
+shape = SubResource( 48 )
+
+[node name="Signs" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="Shield" type="Sprite" parent="Signs"]
+position = Vector2( 360, 163 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 7 )
+
+[node name="ItemArea" type="Area2D" parent="Signs/Shield"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="ItemCollision" type="CollisionShape2D" parent="Signs/Shield/ItemArea"]
+shape = SubResource( 48 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 119, 264 )
+z_index = 2
+script = ExtResource( 3 )
+
+[node name="Camera" type="Camera2D" parent="Player"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -2, -40 )
+scale = Vector2( 2, 2 )
+current = true
+zoom = Vector2( 0.75, 0.75 )
+smoothing_enabled = true
+
+[node name="BattleCollisions" type="Node" parent="."]
+
+[node name="Guard1" type="Area2D" parent="BattleCollisions"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleCollisions/Guard1"]
+position = Vector2( 648, 691 )
+shape = SubResource( 51 )
+
 [connection signal="area_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
 [connection signal="area_exited" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield" ]]
 [connection signal="area_entered" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield2" ]]
 [connection signal="area_exited" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield2" ]]
 [connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
 [connection signal="area_exited" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ false, "SpawnSign" ]]
+[connection signal="area_entered" from="BattleCollisions/Guard1" to="Inventory/FightUI" method="startFight" binds= [ "Guard1" ]]

@@ -49,7 +49,7 @@
 		},
 		{
 			"event_id": "dialogic_022",
-			"transition_duration": 0
+			"transition_duration": 1
 		},
 		{
 			"event_id": "dialogic_013"

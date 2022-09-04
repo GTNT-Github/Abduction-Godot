@@ -2,6 +2,8 @@
 default_env.tres
 icon.png
 icon.png.import
+.import
+.wav.import
 project.godot
 scn/
 override.cfg
