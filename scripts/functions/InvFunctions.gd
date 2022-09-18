@@ -39,4 +39,3 @@ func resetInventory():
 			tempInv[count] = i
 			count+=1
 	inventory = tempInv
-	print(inventory)

@@ -8,6 +8,12 @@
 			"name": "InventorySize",
 			"type": 0,
 			"value": "1"
+		},
+		{
+			"id": "1663529485-648",
+			"name": "ActRandom",
+			"type": 0,
+			"value": "0"
 		}
 	]
 }

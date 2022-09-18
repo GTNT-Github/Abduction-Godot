@@ -24,7 +24,7 @@ jobs:
         with:
           name: ${{ matrix.platform.file }}
           preset: ${{ matrix.platform.name }}
-          debugMode: true
+          debugMode: "true"
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
