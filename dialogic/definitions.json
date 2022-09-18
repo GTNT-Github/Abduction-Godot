@@ -8,12 +8,6 @@
 			"name": "InventorySize",
 			"type": 0,
 			"value": "1"
-		},
-		{
-			"id": "1662414455-648",
-			"name": "ActCheck",
-			"type": 0,
-			"value": "0"
 		}
 	]
 }
