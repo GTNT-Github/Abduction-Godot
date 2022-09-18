@@ -1,17 +1,21 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Items.gd" type="Script" id=2]
+[ext_resource path="res://scripts/interactions/Items.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://scripts/Backend.gd" type="Script" id=4]
 [ext_resource path="res://assets/tilemap/cell.png" type="Texture" id=5]
 [ext_resource path="res://assets/items/sheild.png" type="Texture" id=6]
 [ext_resource path="res://assets/misc/sign.png" type="Texture" id=7]
-[ext_resource path="res://scripts/Signs.gd" type="Script" id=8]
+[ext_resource path="res://scripts/interactions/Signs.gd" type="Script" id=8]
 [ext_resource path="res://assets/misc/inventoryBackground.png" type="Texture" id=9]
 [ext_resource path="res://assets/fonts/defaultFont.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://scripts/InvUI.gd" type="Script" id=11]
+[ext_resource path="res://scripts/UI/InvUI.gd" type="Script" id=11]
 [ext_resource path="res://scenes/FightUI.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/UI/Cameras.gd" type="Script" id=13]
+
+[sub_resource type="GDScript" id=52]
+script/source = "extends Node
+"
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -390,7 +394,7 @@ extents = Vector2( 8, 8 )
 extents = Vector2( 72, 24 )
 
 [node name="MainGame" type="Node2D"]
-script = ExtResource( 4 )
+script = SubResource( 52 )
 
 [node name="Cell" type="TileMap" parent="."]
 position = Vector2( 0, -5 )
@@ -412,16 +416,17 @@ cell_size = Vector2( 48, 48 )
 format = 1
 tile_data = PoolIntArray( 131173, 1, 0, 131174, 0, 589824, 131175, 0, 65537, 131176, 0, 65537, 131177, 0, 65537, 131178, 0, 65537, 131179, 0, 65537, 131180, 0, 65537, 131181, 0, 65537, 131182, 0, 65537, 131183, 0, 65537, 131184, 0, 65537, 131185, 0, 65537, 131186, 0, 65537, 131187, 0, 65537, 196709, 3, 0, 196710, 0, 65536, 196711, 0, 65537, 196712, 0, 65537, 196713, 0, 65537, 196714, 0, 65537, 196715, 0, 65537, 196716, 0, 65537, 196717, 0, 65537, 196718, 0, 65537, 196719, 0, 65537, 196720, 0, 65537, 196721, 0, 65537, 196722, 0, 65537, 196723, 0, 65537, 262245, 3, 0, 262246, 0, 65536, 262247, 0, 65537, 262248, 0, 65537, 262249, 0, 65537, 262250, 0, 65537, 262251, 0, 65537, 262252, 0, 65537, 262253, 0, 65537, 262254, 0, 65537, 262255, 0, 65537, 262256, 0, 65537, 262257, 0, 65537, 262258, 0, 65537, 262259, 0, 65537, 327781, 3, 0, 327782, 0, 65536, 327783, 0, 65537, 327784, 0, 65537, 327785, 0, 65537, 327786, 0, 65537, 327787, 0, 65537, 327788, 0, 65537, 327789, 0, 65537, 327790, 0, 65537, 327791, 0, 65537, 327792, 0, 65537, 327793, 0, 65537, 327794, 0, 65537, 327795, 0, 65537, 393317, 3, 0, 393318, 0, 65536, 393319, 0, 65537, 393320, 0, 65537, 393321, 0, 65537, 393322, 0, 65537, 393323, 0, 65537, 393324, 0, 65537, 393325, 0, 65537, 393326, 0, 65537, 393327, 0, 65537, 393328, 0, 65537, 393329, 0, 65537, 393330, 0, 65537, 393331, 0, 65537, 458853, 3, 0, 458854, 0, 65536, 458855, 0, 65537, 458856, 0, 65537, 458857, 0, 65537, 458858, 0, 65537, 458859, 0, 65537, 458860, 0, 65537, 458861, 0, 65537, 458862, 0, 65537, 458863, 0, 65537, 458864, 0, 65537, 458865, 0, 65537, 458866, 0, 65537, 458867, 0, 65537, 524389, 2, 0, 524390, 0, 589825, 524391, 0, 65537, 524392, 0, 65537, 524393, 0, 65537, 524394, 0, 65537, 524395, 0, 65537, 524396, 0, 65537, 524397, 0, 65537, 524398, 0, 65537, 524399, 0, 65537, 524400, 0, 65537, 524401, 0, 65537, 524402, 0, 65537, 524403, 0, 65537 )
 
-[node name="Inventory" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Background" type="Sprite" parent="Inventory"]
+[node name="InvUI" type="Sprite" parent="UI"]
+visible = false
 position = Vector2( 0, 360 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 9 )
 offset = Vector2( 640, 0 )
 script = ExtResource( 11 )
 
-[node name="Name" type="Label" parent="Inventory/Background"]
+[node name="Name" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.042
 anchor_right = 0.149
@@ -437,7 +442,7 @@ text = "GTNT"
 align = 1
 valign = 1
 
-[node name="HP" type="Label" parent="Inventory/Background"]
+[node name="HP" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -453,7 +458,7 @@ text = "100/100"
 align = 1
 valign = 1
 
-[node name="Armor" type="Label" parent="Inventory/Background"]
+[node name="Armor" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -469,7 +474,7 @@ text = "Armor"
 align = 1
 valign = 1
 
-[node name="ArmorSlot" type="Label" parent="Inventory/Background"]
+[node name="ArmorSlot" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -485,7 +490,7 @@ text = "-----"
 align = 1
 valign = 1
 
-[node name="Weapon" type="Label" parent="Inventory/Background"]
+[node name="Weapon" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -501,7 +506,7 @@ text = "Weapon"
 align = 1
 valign = 1
 
-[node name="WeaponSlot" type="Label" parent="Inventory/Background"]
+[node name="WeaponSlot" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -517,7 +522,7 @@ text = "-----"
 align = 1
 valign = 1
 
-[node name="Items" type="Label" parent="Inventory/Background"]
+[node name="Items" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -533,7 +538,7 @@ text = "Items"
 align = 1
 valign = 1
 
-[node name="InvSlot1" type="Label" parent="Inventory/Background"]
+[node name="InvSlot1" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -549,7 +554,7 @@ text = "-----"
 align = 1
 valign = 1
 
-[node name="InvSlot2" type="Label" parent="Inventory/Background"]
+[node name="InvSlot2" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -565,7 +570,7 @@ text = "-----"
 align = 1
 valign = 1
 
-[node name="InvSlot3" type="Label" parent="Inventory/Background"]
+[node name="InvSlot3" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -581,7 +586,7 @@ text = "-----"
 align = 1
 valign = 1
 
-[node name="InvSlot4" type="Label" parent="Inventory/Background"]
+[node name="InvSlot4" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -597,7 +602,7 @@ text = "-----"
 align = 1
 valign = 1
 
-[node name="InvSlot5" type="Label" parent="Inventory/Background"]
+[node name="InvSlot5" type="Label" parent="UI/InvUI"]
 anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
@@ -613,7 +618,8 @@ text = "-----"
 align = 1
 valign = 1
 
-[node name="FightUI" parent="Inventory" instance=ExtResource( 12 )]
+[node name="FightUI" parent="UI" instance=ExtResource( 12 )]
+visible = false
 
 [node name="Items" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -660,21 +666,6 @@ collision_mask = 2
 [node name="ItemCollision" type="CollisionShape2D" parent="Signs/Shield/ItemArea"]
 shape = SubResource( 48 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 119, 264 )
-z_index = 2
-script = ExtResource( 3 )
-
-[node name="Camera" type="Camera2D" parent="Player"]
-visible = false
-modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -2, -40 )
-scale = Vector2( 2, 2 )
-current = true
-zoom = Vector2( 0.75, 0.75 )
-smoothing_enabled = true
-
 [node name="BattleCollisions" type="Node" parent="."]
 
 [node name="Guard1" type="Area2D" parent="BattleCollisions"]
@@ -685,10 +676,30 @@ collision_mask = 2
 position = Vector2( 648, 691 )
 shape = SubResource( 51 )
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 120, 260 )
+z_index = 2
+script = ExtResource( 3 )
+
+[node name="Cameras" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="Player" type="Camera2D" parent="Cameras"]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 120, 260 )
+current = true
+zoom = Vector2( 0.75, 0.75 )
+editor_draw_screen = false
+
+[node name="Guard1" type="Camera2D" parent="Cameras"]
+position = Vector2( 648, 979 )
+zoom = Vector2( 1.5, 1.5 )
+
 [connection signal="area_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
 [connection signal="area_exited" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield" ]]
 [connection signal="area_entered" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield2" ]]
 [connection signal="area_exited" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield2" ]]
 [connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
 [connection signal="area_exited" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ false, "SpawnSign" ]]
-[connection signal="area_entered" from="BattleCollisions/Guard1" to="Inventory/FightUI" method="startFight" binds= [ "Guard1" ]]
+[connection signal="area_entered" from="BattleCollisions/Guard1" to="UI/FightUI" method="startFight" binds= [ "Guard1" ]]

@@ -26,8 +26,7 @@ func getInput() -> Vector2:
 			velocity.x -= 1
 			animation = "walk"
 			faceLeft = true
+	if animation != animatedSprite.animation:
+		animatedSprite.play(animation)
 		animatedSprite.flip_h = faceLeft
-		if animation != animatedSprite.animation:
-			animatedSprite.play(animation)
-			animatedSprite.flip_h = faceLeft
 	return velocity
