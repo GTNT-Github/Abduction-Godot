@@ -12,6 +12,6 @@ func playSound(sound):
 func playMusic(song):
 	var musicNode = AudioStreamPlayer2D.new()
 	musicNode.stream = Values.music[song]
-	musicNode.volume_db = 20
+	musicNode.volume_db = 15
 	add_child(musicNode)
 	musicNode.play()

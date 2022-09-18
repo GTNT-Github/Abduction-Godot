@@ -20,10 +20,8 @@ func startFight(area: Area2D, enemy: String) -> void:
 		$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
 		$"Top/Weapon".text = "Weapon:\n"+InvFunctions.weapon
 		for n in InvFunctions.inventory.size():
-			print("Slot",n+1)
 			get_node(str("Left/Text/Slot",n+1)).text = InvFunctions.inventory[n]
 		for n in Values.actValues[Values.currentEnemy].size():
-			print(n)
 			get_node(str("Right/Text/Act",n+3)).text = Values.actValues[Values.currentEnemy][n]
 		setButton("Act","Items","button")
 		flicker()
@@ -41,7 +39,7 @@ func flicker() -> void:
 			if n == 4:
 				cameras.fightCamera(Values.currentEnemy)
 				playText(Values.currentEnemy+"Approach","approach")
-#				GeneralFunc.playMusic("fightSong")
+				GeneralFunc.playMusic("fightSong")
 		else:
 			$Flicker.visible = true
 
