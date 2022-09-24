@@ -406,6 +406,7 @@ tile_data = PoolIntArray( 131173, 1, 0, 131174, 0, 589824, 131175, 0, 65537, 131
 [node name="Background" parent="UI" instance=ExtResource( 9 )]
 
 [node name="FightUI" parent="UI" instance=ExtResource( 12 )]
+visible = false
 
 [node name="Items" type="Node" parent="."]
 script = ExtResource( 2 )

@@ -17,6 +17,7 @@ var selectedSign
 var selectedButton
 var selectedText
 var fightState = "attack"
+var selectedMenu
 var currentEnemy
 
 #Item Values

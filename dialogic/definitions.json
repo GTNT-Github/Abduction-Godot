@@ -4,16 +4,16 @@
 	],
 	"variables": [
 		{
-			"id": "1661477242-648",
-			"name": "InventorySize",
-			"type": 0,
-			"value": "1"
-		},
-		{
 			"id": "1663529485-648",
 			"name": "ActRandom",
 			"type": 0,
 			"value": "0"
+		},
+		{
+			"id": "1661477242-648",
+			"name": "InventorySize",
+			"type": 0,
+			"value": "1"
 		}
 	]
 }

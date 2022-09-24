@@ -17,6 +17,7 @@ func startFight(area: Area2D, enemy: String) -> void:
 		self.visible = true
 		Values.currentEnemy = enemy
 		Values.fightState = "menu"
+		Dialogic.set_variable("Fight","true")
 		$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
 		$"Top/Weapon".text = "Weapon:\n"+InvFunctions.weapon
 		for n in InvFunctions.inventory.size():
@@ -38,7 +39,7 @@ func flicker() -> void:
 #			GeneralFunc.playSound("fightStart")
 			if n == 4:
 				cameras.fightCamera(Values.currentEnemy)
-				playText(Values.currentEnemy+"Approach","approach")
+				playText(Values.currentEnemy+"Approach")
 #				GeneralFunc.playMusic("fightSong")
 		else:
 			$Flicker.visible = true
@@ -48,7 +49,7 @@ func _input(event: InputEvent) -> void:
 	
 	#Check if fight is in progress
 	if Values.currentEnemy:
-		print(Values.selectedButton)
+		
 		#Switch to Item button
 		if event.is_action_pressed("ui_left") && Values.fightState == "menu" && Values.selectedButton == "Act":
 			setButton("Act","Items","button")
@@ -65,10 +66,12 @@ func _input(event: InputEvent) -> void:
 			prints(Values.selectedButton != "Items",InvFunctions.inventory[0] != "-----")
 			if Values.selectedButton != "Items" || InvFunctions.inventory[0] != "-----":
 				Values.fightState = "text"
+				Values.selectedMenu = Values.selectedButton
 				get_node(Values.fightButtons["Act"]).visible = false
 				get_node(Values.fightButtons["Items"]).visible = false
 				get_node(Values.fightButtons[Values.selectedButton+"Text"]).visible = true
 				setButton(str(Values.selectedButton,1),str(Values.selectedButton,1),"text")
+		
 		
 		#Go back to buttons
 		elif event.is_action_pressed("ui_cancel") && Values.fightState == "text":
@@ -79,22 +82,42 @@ func _input(event: InputEvent) -> void:
 			get_node(Values.fightButtons["Items"]).visible = true
 			GeneralFunc.playSound("select")
 			Values.fightState = "menu"
+			Values.selectedMenu = "Menu"
 			var selectedButton = Values.selectedText
 			selectedButton[selectedButton.length()-1] = str(1)
 			setButton(Values.selectedText,selectedButton,"text")
 		
+		#Move selected text down
 		elif event.is_action_pressed("ui_down") && Values.fightState == "text":
 			var selectedText = int(Values.selectedText[Values.selectedText.length()-1])
-			if selectedText < 4:
+			#Check boundaries for acts
+			if selectedText < 4 && Values.selectedMenu != "Items":
 				var selectedButton = Values.selectedText
 				selectedButton[selectedButton.length()-1] = str(selectedText+1)
 				setButton(Values.selectedText,selectedButton,"text")
+
+			#Check boundaries for items
+			elif selectedText < 4 && Values.selectedMenu != "Act" && get_node(str("Left/Text/Slot",selectedText+1)).text != "-----":
+				var selectedButton = Values.selectedText
+				selectedButton[selectedButton.length()-1] = str(selectedText+1)
+				setButton(Values.selectedText,selectedButton,"text")
+
+		#Move selected text up
 		elif event.is_action_pressed("ui_up") && Values.fightState == "text":
 			var selectedText = int(Values.selectedText[Values.selectedText.length()-1])
 			if selectedText > 1:
 				var selectedButton = Values.selectedText
 				selectedButton[selectedButton.length()-1] = str(selectedText-1)
 				setButton(Values.selectedText,selectedButton,"text")
+
+		#Select Item
+		elif event.is_action_pressed("ui_select") && Values.fightState == "text":
+			if Values.selectedMenu == "Items":
+				var selectedSlot = int(Values.selectedText[Values.selectedText.length()-1])-1
+				var selectedItem = InvFunctions.inventory[selectedSlot]
+				print(selectedSlot,selectedItem)
+				useItem(selectedItem,selectedSlot)
+		
 
 #Set selected button/text
 func setButton(selectedButton, newButton,mode):
@@ -106,8 +129,23 @@ func setButton(selectedButton, newButton,mode):
 		get_node(Values.fightButtons[selectedButton]).modulate = Color(1,1,1,1)
 		get_node(Values.fightButtons[newButton]).modulate = Color(1,1,1,0.5)
 		Values.selectedText = newButton
+
 #Play Text
-func playText(text,type):
+func playText(text):
 	var dialouge = Dialogic.start(text)
 #	dialouge.connect("dialogic_signal",self,"itemAccepted")
 	add_child(dialouge)
+
+func useItem(item:String,slot:int):
+	if Values.itemTypes[item] == "Armor":
+		playText(item+"Use")
+		InvFunctions.setArmor(slot)
+		resetInv(slot)
+
+func resetInv(slot):
+	$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
+	$"Top/Weapon".text = "Weapon:\n"+InvFunctions.weapon
+	for n in InvFunctions.inventory.size():
+		get_node(str("Left/Text/Slot",n+1)).text = InvFunctions.inventory[n]
+		get_node(str("Left/Text/Slot",n+1)).add_color_override("font_color",Color(1,1,1))
+	setButton(str("Items",slot+1),"Items1","text")
