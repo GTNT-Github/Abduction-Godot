@@ -63,7 +63,6 @@ func _input(event: InputEvent) -> void:
 		#Button Selection
 		elif event.is_action_pressed("ui_select") && Values.fightState == "menu":
 			GeneralFunc.playSound("select")
-			prints(Values.selectedButton != "Items",InvFunctions.inventory[0] != "-----")
 			if Values.selectedButton != "Items" || InvFunctions.inventory[0] != "-----":
 				Values.fightState = "text"
 				Values.selectedMenu = Values.selectedButton
@@ -110,8 +109,10 @@ func _input(event: InputEvent) -> void:
 				selectedButton[selectedButton.length()-1] = str(selectedText-1)
 				setButton(Values.selectedText,selectedButton,"text")
 
-		#Select Item
-		elif event.is_action_pressed("ui_select") && Values.fightState == "text":
+		#Select Text
+		elif event.is_action_pressed("ui_select") && Values.fightState == "text" && !Dialogic.has_current_dialog_node():
+			
+			#Select Item
 			if Values.selectedMenu == "Items":
 				var selectedSlot = int(Values.selectedText[Values.selectedText.length()-1])-1
 				var selectedItem = InvFunctions.inventory[selectedSlot]
@@ -133,15 +134,17 @@ func setButton(selectedButton, newButton,mode):
 #Play Text
 func playText(text):
 	var dialouge = Dialogic.start(text)
-#	dialouge.connect("dialogic_signal",self,"itemAccepted")
+	dialouge.connect("dialogic_signal",self,"startAttack")
 	add_child(dialouge)
 
+#Use an item
 func useItem(item:String,slot:int):
 	if Values.itemTypes[item] == "Armor":
 		playText(item+"Use")
 		InvFunctions.setArmor(slot)
 		resetInv(slot)
 
+#Reset inventory slots
 func resetInv(slot):
 	$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
 	$"Top/Weapon".text = "Weapon:\n"+InvFunctions.weapon
@@ -149,3 +152,8 @@ func resetInv(slot):
 		get_node(str("Left/Text/Slot",n+1)).text = InvFunctions.inventory[n]
 		get_node(str("Left/Text/Slot",n+1)).add_color_override("font_color",Color(1,1,1))
 	setButton(str("Items",slot+1),"Items1","text")
+
+#Start an attack
+func startAttack(enemy):
+	$"/root/MainGame/Enemy".attack(Values.currentEnemy)
+	Values.fightState = "attack"
