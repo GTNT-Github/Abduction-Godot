@@ -1,20 +1,22 @@
 extends Node
 
-onready var ProjectileTimer = Timer.new()
+onready var timer = Timer.new()
 export (PackedScene) var Projectile
 func _ready():
-	ProjectileTimer.one_shot = false
-	add_child(ProjectileTimer)
-func attack(enemy):
+	timer.one_shot = false
+	add_child(timer)
+	
+func attack(spare):
+	var enemy = Values.currentEnemy
 	var enemyNode = get_node(enemy)
 	var enemyValues = Values.attackValues[enemy]
-	
+	Values.fightState = "attack"
 	#Check enemy attack type
 	if enemyValues["Attack"] == "Left-Right":
-		leftRight(enemy,enemyNode,enemyValues)
+		leftRight(enemy,enemyNode,enemyValues,spare)
 	
 
-func leftRight(enemy,enemyNode,enemyValues):
+func leftRight(enemy,enemyNode,enemyValues,spare):
 
 	#Get attack direction
 	var direction = enemyValues["Direction"]
@@ -37,23 +39,27 @@ func leftRight(enemy,enemyNode,enemyValues):
 	enemyValues["Attacks"] += 1
 	enemyValues["Direction"] = direction
 	
-	spawnProjectile(enemyNode,enemyValues)
+	spawnProjectile(enemyNode,enemyValues,spare)
 	#Projectiles
-	ProjectileTimer.wait_time = enemyValues["ProjectileDistance"]
-	ProjectileTimer.connect("timeout",self,"spawnProjectile",[enemyNode,enemyValues])
-	ProjectileTimer.start()
+	timer.wait_time = enemyValues["ProjectileDistance"]
+	timer.connect("timeout",self,"spawnProjectile",[enemyNode,enemyValues,spare])
+	timer.start()
 	
+	#Wait for attack end
 	yield(animate,"tween_all_completed")
+	timer.stop()
+	#Reset fight UI
+	timer.wait_time = 2
+	timer.start()
+	timer.disconnect("timeout",self,"spawnProjectile")
+	yield(timer,"timeout")
+	$"/root/MainGame/UI/FightUI".resetMenu(spare)
 	Values.fightState = "menu"
+	timer.stop()
 
-func spawnProjectile(enemyNode,enemyValues):
-	print(1)
-	if Values.fightState == "attack":
-		print(2)
-		var projectile = Projectile.instance()
-		projectile.Velocity = Vector2(enemyValues["ProjectileVel"])
-		projectile.position = enemyNode.position
-		add_child(projectile)
-	else:
-		print(3)
-		ProjectileTimer.stop()
+func spawnProjectile(enemyNode,enemyValues,spare):
+	var projectile = Projectile.instance()
+	projectile.Velocity = Vector2(enemyValues["ProjectileVel"])
+	projectile.Spare = spare
+	projectile.position = enemyNode.position
+	add_child(projectile)

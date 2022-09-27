@@ -11,7 +11,7 @@
 			"text": "Defense: 10%[br]You equiped a shield"
 		},
 		{
-			"emit_signal": "1",
+			"emit_signal": "false",
 			"event_id": "dialogic_040"
 		},
 		{

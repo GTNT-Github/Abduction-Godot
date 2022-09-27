@@ -5,6 +5,15 @@
 			"set_theme": "theme-1661467268.cfg"
 		},
 		{
+			"definition": "1663529485-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_lower_limit": 1,
+			"random_upper_limit": 2,
+			"set_random": true,
+			"set_value": ""
+		},
+		{
 			"condition": "",
 			"definition": "1663529485-648",
 			"event_id": "dialogic_012",
@@ -35,6 +44,10 @@
 			"event_id": "dialogic_013"
 		},
 		{
+			"emit_signal": "false",
+			"event_id": "dialogic_040"
+		},
+		{
 			"definition": "1663529485-648",
 			"event_id": "dialogic_014",
 			"operation": "=",
@@ -50,6 +63,6 @@
 	"metadata": {
 		"dialogic-version": "1.4.3",
 		"file": "timeline-1663529467.json",
-		"name": "Guard1Act1"
+		"name": "Guard1Act3"
 	}
 }

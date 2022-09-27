@@ -1,6 +1,7 @@
 extends Node
 
 func checkUI():
+	prints(!Dialogic.has_current_dialog_node(),!Values.invOpen,Values.fightState == "attack")
 	return !Dialogic.has_current_dialog_node() && !Values.invOpen && Values.fightState == "attack"
 
 func playSound(sound):

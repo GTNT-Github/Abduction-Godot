@@ -17,13 +17,15 @@ func startFight(area: Area2D, enemy: String) -> void:
 		self.visible = true
 		Values.currentEnemy = enemy
 		Values.fightState = "menu"
-		Dialogic.set_variable("Fight","true")
+		
+		#Set act and inventory
 		$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
 		$"Top/Weapon".text = "Weapon:\n"+InvFunctions.weapon
 		for n in InvFunctions.inventory.size():
 			get_node(str("Left/Text/Slot",n+1)).text = InvFunctions.inventory[n]
 		for n in Values.actValues[Values.currentEnemy].size():
 			get_node(str("Right/Text/Act",n+3)).text = Values.actValues[Values.currentEnemy][n]
+		
 		setButton("Act","Items","button")
 		flicker()
 
@@ -74,17 +76,7 @@ func _input(event: InputEvent) -> void:
 		
 		#Go back to buttons
 		elif event.is_action_pressed("ui_cancel") && Values.fightState == "text":
-			setButton(Values.selectedButton,Values.selectedButton,"button")
-			get_node(Values.fightButtons["ActText"]).visible = false
-			get_node(Values.fightButtons["ItemsText"]).visible = false
-			get_node(Values.fightButtons["Act"]).visible = true
-			get_node(Values.fightButtons["Items"]).visible = true
-			GeneralFunc.playSound("select")
-			Values.fightState = "menu"
-			Values.selectedMenu = "Menu"
-			var selectedButton = Values.selectedText
-			selectedButton[selectedButton.length()-1] = str(1)
-			setButton(Values.selectedText,selectedButton,"text")
+			resetMenu(false)
 		
 		#Move selected text down
 		elif event.is_action_pressed("ui_down") && Values.fightState == "text":
@@ -111,14 +103,14 @@ func _input(event: InputEvent) -> void:
 
 		#Select Text
 		elif event.is_action_pressed("ui_select") && Values.fightState == "text" && !Dialogic.has_current_dialog_node():
-			
 			#Select Item
 			if Values.selectedMenu == "Items":
 				var selectedSlot = int(Values.selectedText[Values.selectedText.length()-1])-1
 				var selectedItem = InvFunctions.inventory[selectedSlot]
-				print(selectedSlot,selectedItem)
 				useItem(selectedItem,selectedSlot)
-		
+			elif Values.selectedMenu == "Act":
+				var selectedAct = Values.selectedText
+				playText(Values.currentEnemy+selectedAct)
 
 #Set selected button/text
 func setButton(selectedButton, newButton,mode):
@@ -132,10 +124,11 @@ func setButton(selectedButton, newButton,mode):
 		Values.selectedText = newButton
 
 #Play Text
-func playText(text):
+func playText(text) -> Object:
 	var dialouge = Dialogic.start(text)
-	dialouge.connect("dialogic_signal",self,"startAttack")
+	dialouge.connect("dialogic_signal",get_node("/root/MainGame/Enemy"),"attack")
 	add_child(dialouge)
+	return dialouge
 
 #Use an item
 func useItem(item:String,slot:int):
@@ -153,7 +146,22 @@ func resetInv(slot):
 		get_node(str("Left/Text/Slot",n+1)).add_color_override("font_color",Color(1,1,1))
 	setButton(str("Items",slot+1),"Items1","text")
 
-#Start an attack
-func startAttack(enemy):
-	$"/root/MainGame/Enemy".attack(Values.currentEnemy)
-	Values.fightState = "attack"
+
+#Reset Menu screem
+func resetMenu(spare):
+	if !spare:
+		setButton(Values.selectedButton,Values.selectedButton,"button")
+		get_node(Values.fightButtons["ActText"]).visible = false
+		get_node(Values.fightButtons["ItemsText"]).visible = false
+		get_node(Values.fightButtons["Act"]).visible = true
+		get_node(Values.fightButtons["Items"]).visible = true
+		GeneralFunc.playSound("select")
+		Values.fightState = "menu"
+		Values.selectedMenu = "Menu"
+		var selectedButton = Values.selectedText
+		selectedButton[selectedButton.length()-1] = str(1)
+		setButton(Values.selectedText,selectedButton,"text")
+	else:
+		var spareText = playText(Values.currentEnemy+"Befriend")
+		yield(spareText,"dialogic_signal")
+		print(69)
