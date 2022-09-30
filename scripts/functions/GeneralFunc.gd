@@ -1,7 +1,6 @@
 extends Node
 
 func checkUI():
-	prints(!Dialogic.has_current_dialog_node(),!Values.invOpen,Values.fightState == "attack")
 	return !Dialogic.has_current_dialog_node() && !Values.invOpen && Values.fightState == "attack"
 
 func playSound(sound):
@@ -11,8 +10,9 @@ func playSound(sound):
 	soundNode.play()
 
 func playMusic(song):
-	var musicNode = AudioStreamPlayer.new()
-	musicNode.stream = Values.music[song]
-#	musicNode.volume_db = 3
-	add_child(musicNode)
+	var musicNode = get_node("/root/MainGame/Music/"+song)
 	musicNode.play()
+
+func stopMusic(song):
+	var musicNode = get_node("/root/MainGame/Music/"+song)
+	musicNode.stop()

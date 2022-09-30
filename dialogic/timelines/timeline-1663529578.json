@@ -11,6 +11,10 @@
 			"text": "You befriended Guard 1[br]He gave you a keycard!"
 		},
 		{
+			"emit_signal": "spare",
+			"event_id": "dialogic_040"
+		},
+		{
 			"event_id": "dialogic_022",
 			"transition_duration": 0
 		}

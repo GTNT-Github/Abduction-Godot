@@ -3,8 +3,6 @@ extends Control
 var flickerLoop
 onready var cameras = get_node("/root/MainGame/Cameras")
 
-
-
 func _ready() -> void:
 	self.visible = false
 
@@ -17,6 +15,7 @@ func startFight(area: Area2D, enemy: String) -> void:
 		self.visible = true
 		Values.currentEnemy = enemy
 		Values.fightState = "menu"
+		area.queue_free()
 		
 		#Set act and inventory
 		$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
@@ -38,11 +37,12 @@ func flicker() -> void:
 		if n%2 == 0:
 			$Flicker.visible = false
 			rect_scale = Values.flickrValues[n]
-#			GeneralFunc.playSound("fightStart")
+			GeneralFunc.playSound("fightStart")
 			if n == 4:
-				cameras.fightCamera(Values.currentEnemy)
+				get_node("/root/MainGame/Player/Player").global_position = Vector2(648,840)
+				get_node("/root/MainGame/Player/Player").zoom = Vector2(1,1)
 				playText(Values.currentEnemy+"Approach")
-#				GeneralFunc.playMusic("fightSong")
+				GeneralFunc.playMusic("fightSong")
 		else:
 			$Flicker.visible = true
 
@@ -112,6 +112,11 @@ func _input(event: InputEvent) -> void:
 				var selectedAct = Values.selectedText
 				playText(Values.currentEnemy+selectedAct)
 
+#Set camera position if enemy is set
+func _process(delta: float) -> void:
+	if Values.currentEnemy:
+		get_node("/root/MainGame/Player/Player").global_position = Vector2(648,840)
+
 #Set selected button/text
 func setButton(selectedButton, newButton,mode):
 	if mode == "button":
@@ -125,6 +130,9 @@ func setButton(selectedButton, newButton,mode):
 
 #Play Text
 func playText(text) -> Object:
+	$"Left/Text".visible = false
+	$"Right/Text".visible = false
+	
 	var dialouge = Dialogic.start(text)
 	dialouge.connect("dialogic_signal",get_node("/root/MainGame/Enemy"),"attack")
 	add_child(dialouge)
@@ -164,4 +172,16 @@ func resetMenu(spare):
 	else:
 		var spareText = playText(Values.currentEnemy+"Befriend")
 		yield(spareText,"dialogic_signal")
-		print(69)
+
+#Close Fight UI
+func closeUI():
+		$Tween.interpolate_property(self,"rect_scale",Vector2(1,1),Vector2(1.9,1.9),0.4,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		$Tween.start()
+		get_node("/root/MainGame/Player/Player").position = Vector2(-2,-40)
+		get_node("/root/MainGame/Player/Player").zoom = Vector2(0.75,0.75)
+		GeneralFunc.stopMusic("fightSong")
+		yield($Tween,"tween_all_completed")
+	
+		self.visible = true
+		Values.currentEnemy = null
+		Values.fightState = "attack"

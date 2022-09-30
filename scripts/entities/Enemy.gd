@@ -12,7 +12,12 @@ func attack(spare):
 	var enemyValues = Values.attackValues[enemy]
 	Values.fightState = "attack"
 	#Check enemy attack type
-	if enemyValues["Attack"] == "Left-Right":
+	
+	if spare == "spare":
+		get_node(Values.currentEnemy).visible = false
+		$"/root/MainGame/UI/FightUI".closeUI()
+	
+	elif enemyValues["Attack"] == "Left-Right":
 		leftRight(enemy,enemyNode,enemyValues,spare)
 	
 

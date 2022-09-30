@@ -14,7 +14,7 @@ size = 10
 font_data = ExtResource( 1 )
 
 [node name="FightUI" type="Control"]
-rect_scale = Vector2( 1.9, 1.9 )
+rect_scale = Vector2( 1.8, 1.8 )
 rect_pivot_offset = Vector2( 640, 310 )
 script = ExtResource( 2 )
 
@@ -268,3 +268,5 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = 24.0
+
+[node name="Tween" type="Tween" parent="."]
