@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/interactions/Items.gd" type="Script" id=2]
 [ext_resource path="res://scripts/entities/Player.gd" type="Script" id=3]
-[ext_resource path="res://scripts/UI/Cameras.gd" type="Script" id=4]
+[ext_resource path="res://assets/items/blueKey.png" type="Texture" id=4]
 [ext_resource path="res://assets/tilemap/cell.png" type="Texture" id=5]
 [ext_resource path="res://assets/items/sheild.png" type="Texture" id=6]
 [ext_resource path="res://assets/misc/sign.png" type="Texture" id=7]
@@ -441,6 +441,20 @@ collision_mask = 2
 [node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield2/ItemArea"]
 shape = SubResource( 48 )
 
+[node name="Blue Keycard" type="Sprite" parent="Items"]
+visible = false
+position = Vector2( 648, 980 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="ItemArea" type="Area2D" parent="Items/Blue Keycard"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="ItemCollision" type="CollisionShape2D" parent="Items/Blue Keycard/ItemArea"]
+shape = SubResource( 48 )
+
 [node name="Signs" type="Node" parent="."]
 script = ExtResource( 8 )
 
@@ -482,14 +496,6 @@ collision_mask = 2
 position = Vector2( 648, 691 )
 shape = SubResource( 51 )
 
-[node name="Cameras" type="Node" parent="."]
-script = ExtResource( 4 )
-
-[node name="Guard1" type="Camera2D" parent="Cameras"]
-modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 648, 840 )
-
 [node name="Enemy" type="Node" parent="."]
 script = ExtResource( 10 )
 Projectile = ExtResource( 13 )
@@ -508,6 +514,8 @@ stream = ExtResource( 14 )
 [connection signal="area_exited" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield" ]]
 [connection signal="area_entered" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield2" ]]
 [connection signal="area_exited" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield2" ]]
+[connection signal="area_entered" from="Items/Blue Keycard/ItemArea" to="Items" method="itemCollision" binds= [ true, "Blue Keycard" ]]
+[connection signal="area_exited" from="Items/Blue Keycard/ItemArea" to="Items" method="itemCollision" binds= [ false, "Blue Keycard" ]]
 [connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
 [connection signal="area_exited" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ false, "SpawnSign" ]]
 [connection signal="area_entered" from="BattleCollisions/Guard1" to="UI/FightUI" method="startFight" binds= [ "Guard1" ]]

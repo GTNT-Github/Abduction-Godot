@@ -23,12 +23,14 @@ var currentEnemy
 #Item Values
 var itemTypes = {
 	"Shield" : "Armor",
-	"Shield2" : "Armor"
+	"Shield2" : "Armor",
+	"Blue Keycard" : "Keycard"
 }
 
 var itemStats = {
 	"Shield": 10,
-	"Shield2": 10
+	"Shield2": 10,
+	"-----": 0
 }
 
 
@@ -44,6 +46,9 @@ var music = {
 
 
 #Fight Values
+
+var HP = 100
+
 var flickrValues = {
 	0:Vector2(1.54,1.54),
 	2:Vector2(1.28,1.28),
@@ -56,7 +61,7 @@ var actValues = {
 
 var attackValues = {
 	"Guard1": {
-		"Attack": "Left-Right",
+		"AttackDir": "Left-Right",
 		"Left": Vector2(408,979),
 		"Right": Vector2(888,979),
 		"End": Vector2(648,979),
@@ -65,9 +70,13 @@ var attackValues = {
 		"Direction": "Right",
 		"Attacks": 0,
 		"ProjectileDistance": 0.5,
-		"ProjectileVel":Vector2(0,-200)
+		"ProjectileVel": Vector2(0,-200),
+		"Attack": 10,
+		"Drops": true,
+		"Drop": "Blue Keycard"
 		}
 }
+
 var fightButtons = {
 	"Items": "Left/Items",
 	"Act": "Right/Act",

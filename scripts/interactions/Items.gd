@@ -1,6 +1,6 @@
 extends Node
 
-func itemCollision(body: Node, entered: bool, item: String) -> void:
+func itemCollision(_body: Node, entered: bool, item: String) -> void:
 	if entered:
 		Values.selectedItem = item
 	else:
@@ -16,8 +16,11 @@ func itemAccepted(item:String):
 	for n in InvFunctions.inventory.size():
 		var invValue = InvFunctions.inventory[n]
 		if invValue == "-----":
-			InvFunctions.inventory[n] = Values.selectedItem
+			InvFunctions.inventory[n] = item
 			Dialogic.set_variable("InventorySize",n+1)
-			remove_child(get_node(Values.selectedItem))
+			remove_child(get_node(item))
 			Values.selectedItem = null
 			break
+
+func showItem(item:String):
+	get_node(item).visible = true

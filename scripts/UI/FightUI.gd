@@ -1,7 +1,6 @@
 extends Control
 
 var flickerLoop
-onready var cameras = get_node("/root/MainGame/Cameras")
 
 func _ready() -> void:
 	self.visible = false
@@ -15,7 +14,10 @@ func startFight(area: Area2D, enemy: String) -> void:
 		self.visible = true
 		Values.currentEnemy = enemy
 		Values.fightState = "menu"
-		area.queue_free()
+		Dialogic.set_variable("Fight","true")
+		
+		var areaNode = get_node("/root/MainGame/BattleCollisions/"+enemy)
+		areaNode.queue_free()
 		
 		#Set act and inventory
 		$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
@@ -76,7 +78,7 @@ func _input(event: InputEvent) -> void:
 		
 		#Go back to buttons
 		elif event.is_action_pressed("ui_cancel") && Values.fightState == "text":
-			resetMenu(false)
+			resetMenu("false")
 		
 		#Move selected text down
 		elif event.is_action_pressed("ui_down") && Values.fightState == "text":
@@ -113,7 +115,7 @@ func _input(event: InputEvent) -> void:
 				playText(Values.currentEnemy+selectedAct)
 
 #Set camera position if enemy is set
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Values.currentEnemy:
 		get_node("/root/MainGame/Player/Player").global_position = Vector2(648,840)
 
@@ -157,7 +159,7 @@ func resetInv(slot):
 
 #Reset Menu screem
 func resetMenu(spare):
-	if !spare:
+	if spare == "false":
 		setButton(Values.selectedButton,Values.selectedButton,"button")
 		get_node(Values.fightButtons["ActText"]).visible = false
 		get_node(Values.fightButtons["ItemsText"]).visible = false
@@ -177,11 +179,15 @@ func resetMenu(spare):
 func closeUI():
 		$Tween.interpolate_property(self,"rect_scale",Vector2(1,1),Vector2(1.9,1.9),0.4,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		$Tween.start()
+		var attackValues = Values.attackValues[Values.currentEnemy]
+		Values.currentEnemy = null
+		Values.fightState = "attack"
+		Dialogic.set_variable("Fight","false")
 		get_node("/root/MainGame/Player/Player").position = Vector2(-2,-40)
 		get_node("/root/MainGame/Player/Player").zoom = Vector2(0.75,0.75)
 		GeneralFunc.stopMusic("fightSong")
 		yield($Tween,"tween_all_completed")
 	
 		self.visible = true
-		Values.currentEnemy = null
-		Values.fightState = "attack"
+		if attackValues["Drops"]:
+			get_node("/root/MainGame/Items").showItem(attackValues["Drop"])

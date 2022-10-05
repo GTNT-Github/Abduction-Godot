@@ -14,23 +14,28 @@ func _input(event: InputEvent) -> void:
 		resetInv()
 		
 	#Close Inventory
-	elif event.is_action("ui_cancel") && event.is_pressed():
+	elif event.is_action("ui_cancel") && event.is_pressed() && !Dialogic.has_current_dialog_node():
 		Values.invOpen = false
 		self.visible = false
 	
 	#UI Arrow Keys
-	elif event.is_action("ui_up") && event.is_pressed() && Values.invOpen:
+	elif event.is_action("ui_up") && event.is_pressed() && Values.invOpen && !Dialogic.has_current_dialog_node():
 		changeSelect(selectedSlot-1)
-	elif event.is_action("ui_down") && event.is_pressed() && Values.invOpen:
+	elif event.is_action("ui_down") && event.is_pressed() && Values.invOpen && !Dialogic.has_current_dialog_node():
 		changeSelect(selectedSlot+1)
 		
 	#Use Item
-	elif event.is_action("ui_select") && event.is_pressed() && Values.invOpen:
+	elif event.is_action("ui_select") && event.is_pressed() && Values.invOpen && !Dialogic.has_current_dialog_node():
 		var currentItem = InvFunctions.inventory[selectedSlot-1]
 		if currentItem != "-----":
 			if Values.itemTypes[currentItem] == "Armor":
 				InvFunctions.setArmor(selectedSlot-1)
 				resetInv()
+				var dialouge = Dialogic.start(currentItem+"Use")
+				add_child(dialouge)
+			elif Values.itemTypes[currentItem] == "Keycard":
+				var dialouge = Dialogic.start(currentItem+"Use")
+				add_child(dialouge)
 
 func resetInv():
 	$ArmorSlot.text = InvFunctions.armor

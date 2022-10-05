@@ -3,7 +3,7 @@ export var speed = 250
 var faceLeft: bool = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var velocity: Vector2 = getInput()
 	move_and_slide(velocity*speed)
 

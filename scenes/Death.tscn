@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sound/death.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/fonts/defaultFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Death.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="Death" type="ColorRect"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 3 )
+
+[node name="DeathText" type="Label" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_fonts/font = SubResource( 1 )
+text = "You died!"
+align = 1
+valign = 1
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

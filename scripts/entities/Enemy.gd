@@ -12,16 +12,16 @@ func attack(spare):
 	var enemyValues = Values.attackValues[enemy]
 	Values.fightState = "attack"
 	#Check enemy attack type
-	
 	if spare == "spare":
 		get_node(Values.currentEnemy).visible = false
 		$"/root/MainGame/UI/FightUI".closeUI()
+		
 	
-	elif enemyValues["Attack"] == "Left-Right":
-		leftRight(enemy,enemyNode,enemyValues,spare)
+	elif enemyValues["AttackDir"] == "Left-Right":
+		leftRight(enemyNode,enemyValues,spare)
 	
 
-func leftRight(enemy,enemyNode,enemyValues,spare):
+func leftRight(enemyNode,enemyValues,spare):
 
 	#Get attack direction
 	var direction = enemyValues["Direction"]

@@ -1,8 +1,30 @@
 {
 	"events": [
 		{
+			"condition": "",
+			"definition": "1664835429-787",
+			"event_id": "dialogic_012",
+			"value": "true"
+		},
+		{
 			"event_id": "dialogic_024",
 			"set_theme": "theme-1661467268.cfg"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1664835429-787",
+			"event_id": "dialogic_012",
+			"value": "false"
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "default-theme.cfg"
+		},
+		{
+			"event_id": "dialogic_013"
 		},
 		{
 			"character": "",

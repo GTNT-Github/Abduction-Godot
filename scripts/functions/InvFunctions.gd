@@ -5,6 +5,10 @@ var inventory:Array = ["-----","-----","-----","-----","-----"]
 var armor:String = "-----"
 var weapon:String = "-----"
 
+var tempInventory:Array = ["-----","-----","-----","-----","-----"]
+var tempArmor:String = "-----"
+var tempWeapon:String = "-----"
+
 func setArmor(invSlot:int):
 	var armorItem = inventory[invSlot]
 	if armor != "-----":
@@ -21,6 +25,7 @@ func setWeapon(invSlot:int):
 		removeItem(invSlot)
 
 func addItem(item:String):
+	print(item)
 	for n in inventory.size():
 		var i = inventory[n]
 		if i != "-----":

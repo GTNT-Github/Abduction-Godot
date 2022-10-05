@@ -10,6 +10,18 @@
 			"value": "0"
 		},
 		{
+			"id": "1664835188-648",
+			"name": "Lock",
+			"type": 0,
+			"value": "false"
+		},
+		{
+			"id": "1664835429-787",
+			"name": "Fight",
+			"type": 0,
+			"value": "false"
+		},
+		{
 			"id": "1661477242-648",
 			"name": "InventorySize",
 			"type": 0,

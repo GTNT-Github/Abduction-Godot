@@ -1,6 +1,6 @@
 extends Node
 
-func signCollision(body: Node, entered: bool, targetSign: String) -> void:
+func signCollision(_body: Node, entered: bool, targetSign: String) -> void:
 	if entered:
 		Values.selectedSign = targetSign
 	else:
