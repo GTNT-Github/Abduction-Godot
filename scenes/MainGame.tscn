@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/interactions/Items.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scenes/FightUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Projectile.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/music/fightSong.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/items/healPotion.png" type="Texture" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -412,6 +413,21 @@ tile_data = PoolIntArray( 131173, 1, 0, 131174, 0, 589824, 131175, 0, 65537, 131
 [node name="FightUI" parent="UI" instance=ExtResource( 12 )]
 visible = false
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 110, 296 )
+z_index = 2
+script = ExtResource( 3 )
+
+[node name="Player" type="Camera2D" parent="Player"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -2, -40 )
+scale = Vector2( 2, 2 )
+current = true
+zoom = Vector2( 0.75, 0.75 )
+smoothing_enabled = true
+
 [node name="Items" type="Node" parent="."]
 script = ExtResource( 2 )
 
@@ -428,31 +444,31 @@ collision_mask = 2
 [node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield/ItemArea"]
 shape = SubResource( 48 )
 
-[node name="Shield2" type="Sprite" parent="Items"]
-position = Vector2( 408, 211 )
+[node name="Health Potion" type="Sprite" parent="Items"]
+position = Vector2( 1272, 931 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 15 )
 
-[node name="ItemArea" type="Area2D" parent="Items/Shield2"]
+[node name="ItemArea" type="Area2D" parent="Items/Health Potion"]
 collision_layer = 8
 collision_mask = 2
 
-[node name="ItemCollision" type="CollisionShape2D" parent="Items/Shield2/ItemArea"]
+[node name="ItemCollision" type="CollisionShape2D" parent="Items/Health Potion/ItemArea"]
 shape = SubResource( 48 )
 
-[node name="Blue Keycard" type="Sprite" parent="Items"]
+[node name="BlueKeycard" type="Sprite" parent="Items"]
 visible = false
 position = Vector2( 648, 980 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 1
 texture = ExtResource( 4 )
 
-[node name="ItemArea" type="Area2D" parent="Items/Blue Keycard"]
+[node name="ItemArea" type="Area2D" parent="Items/BlueKeycard"]
 collision_layer = 8
 collision_mask = 2
 
-[node name="ItemCollision" type="CollisionShape2D" parent="Items/Blue Keycard/ItemArea"]
+[node name="ItemCollision" type="CollisionShape2D" parent="Items/BlueKeycard/ItemArea"]
 shape = SubResource( 48 )
 
 [node name="Signs" type="Node" parent="."]
@@ -470,21 +486,6 @@ collision_mask = 2
 
 [node name="ItemCollision" type="CollisionShape2D" parent="Signs/Shield/ItemArea"]
 shape = SubResource( 48 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 119, 264 )
-z_index = 2
-script = ExtResource( 3 )
-
-[node name="Player" type="Camera2D" parent="Player"]
-visible = false
-modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -2, -40 )
-scale = Vector2( 2, 2 )
-current = true
-zoom = Vector2( 0.75, 0.75 )
-smoothing_enabled = true
 
 [node name="BattleCollisions" type="Node" parent="."]
 
@@ -512,10 +513,10 @@ stream = ExtResource( 14 )
 
 [connection signal="area_entered" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield" ]]
 [connection signal="area_exited" from="Items/Shield/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield" ]]
-[connection signal="area_entered" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ true, "Shield2" ]]
-[connection signal="area_exited" from="Items/Shield2/ItemArea" to="Items" method="itemCollision" binds= [ false, "Shield2" ]]
-[connection signal="area_entered" from="Items/Blue Keycard/ItemArea" to="Items" method="itemCollision" binds= [ true, "Blue Keycard" ]]
-[connection signal="area_exited" from="Items/Blue Keycard/ItemArea" to="Items" method="itemCollision" binds= [ false, "Blue Keycard" ]]
+[connection signal="area_entered" from="Items/Health Potion/ItemArea" to="Items" method="itemCollision" binds= [ true, "Health Potion" ]]
+[connection signal="area_exited" from="Items/Health Potion/ItemArea" to="Items" method="itemCollision" binds= [ false, "Health Potion" ]]
+[connection signal="area_entered" from="Items/BlueKeycard/ItemArea" to="Items" method="itemCollision" binds= [ true, "BlueKeycard" ]]
+[connection signal="area_exited" from="Items/BlueKeycard/ItemArea" to="Items" method="itemCollision" binds= [ false, "BlueKeycard" ]]
 [connection signal="area_entered" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ true, "SpawnSign" ]]
 [connection signal="area_exited" from="Signs/Shield/ItemArea" to="Signs" method="signCollision" binds= [ false, "SpawnSign" ]]
 [connection signal="area_entered" from="BattleCollisions/Guard1" to="UI/FightUI" method="startFight" binds= [ "Guard1" ]]

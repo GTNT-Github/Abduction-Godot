@@ -23,13 +23,13 @@ var currentEnemy
 #Item Values
 var itemTypes = {
 	"Shield" : "Armor",
-	"Shield2" : "Armor",
-	"Blue Keycard" : "Keycard"
+	"Health Potion" : "Health",
+	"BlueKeycard" : "Keycard"
 }
 
 var itemStats = {
 	"Shield": 10,
-	"Shield2": 10,
+	"Health Potion": 10,
 	"-----": 0
 }
 
@@ -73,7 +73,7 @@ var attackValues = {
 		"ProjectileVel": Vector2(0,-200),
 		"Attack": 10,
 		"Drops": true,
-		"Drop": "Blue Keycard"
+		"Drop": "BlueKeycard"
 		}
 }
 

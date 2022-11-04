@@ -9,7 +9,7 @@ size = 100
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=50]
-size = 60
+size = 100
 font_data = ExtResource( 3 )
 
 [node name="Background" type="Sprite"]
@@ -19,15 +19,167 @@ texture = ExtResource( 1 )
 offset = Vector2( 640, 0 )
 script = ExtResource( 2 )
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 53.3333
+margin_top = -318.667
+margin_right = 753.333
+margin_bottom = 925.333
+rect_scale = Vector2( 0.25, 0.25 )
+custom_constants/separation = 220
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 700.0
+margin_bottom = 260.0
+custom_constants/separation = 60
+alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_right = 700.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 49 )
+text = "GTNT"
+align = 1
+valign = 1
+
+[node name="HP" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 160.0
+margin_right = 700.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 49 )
+text = "100/100"
+align = 1
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 480.0
+margin_right = 700.0
+margin_bottom = 740.0
+custom_constants/separation = 60
+alignment = 1
+
+[node name="Armor" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_right = 700.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 49 )
+text = "Armor"
+align = 1
+valign = 1
+
+[node name="ArmorSlot" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 160.0
+margin_right = 700.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 960.0
+margin_right = 700.0
+margin_bottom = 1220.0
+custom_constants/separation = 60
+alignment = 1
+
+[node name="Weapon" type="Label" parent="VBoxContainer/VBoxContainer3"]
+margin_right = 700.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 49 )
+text = "Weapon"
+align = 1
+valign = 1
+
+[node name="WeaponSlot" type="Label" parent="VBoxContainer/VBoxContainer3"]
+margin_top = 160.0
+margin_right = 700.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 1440.0
+margin_right = 700.0
+margin_bottom = 2340.0
+custom_constants/separation = 60
+alignment = 1
+
+[node name="Items" type="Label" parent="VBoxContainer/VBoxContainer4"]
+margin_right = 700.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 49 )
+text = "Items"
+align = 1
+valign = 1
+
+[node name="InvSlot1" type="Label" parent="VBoxContainer/VBoxContainer4"]
+margin_top = 160.0
+margin_right = 700.0
+margin_bottom = 260.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot2" type="Label" parent="VBoxContainer/VBoxContainer4"]
+margin_top = 320.0
+margin_right = 700.0
+margin_bottom = 420.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot3" type="Label" parent="VBoxContainer/VBoxContainer4"]
+margin_top = 480.0
+margin_right = 700.0
+margin_bottom = 580.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot4" type="Label" parent="VBoxContainer/VBoxContainer4"]
+margin_top = 640.0
+margin_right = 700.0
+margin_bottom = 740.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
+[node name="InvSlot5" type="Label" parent="VBoxContainer/VBoxContainer4"]
+margin_top = 800.0
+margin_right = 700.0
+margin_bottom = 900.0
+rect_pivot_offset = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 50 )
+text = "-----"
+align = 1
+valign = 1
+
 [node name="Name" type="Label" parent="."]
 anchor_left = 0.004
 anchor_top = 0.042
 anchor_right = 0.149
 anchor_bottom = 0.076
-margin_left = -5.12
-margin_top = -360.24
-margin_right = 554.28
-margin_bottom = -284.72
+margin_left = 37.5467
+margin_top = -349.573
+margin_right = 596.947
+margin_bottom = -274.053
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
@@ -40,10 +192,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = -349.76
-margin_right = 554.28
-margin_bottom = -274.96
+margin_left = 37.5467
+margin_top = -339.093
+margin_right = 596.947
+margin_bottom = -264.293
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
@@ -56,10 +208,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = -269.76
-margin_right = 554.28
-margin_bottom = -194.96
+margin_left = 37.5467
+margin_top = -259.094
+margin_right = 596.947
+margin_bottom = -184.293
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
@@ -72,10 +224,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = -229.76
-margin_right = 554.28
-margin_bottom = -133.26
+margin_left = 37.5467
+margin_top = -219.093
+margin_right = 596.947
+margin_bottom = -122.593
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
@@ -88,10 +240,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = -149.76
-margin_right = 554.28
-margin_bottom = -74.96
+margin_left = 37.5467
+margin_top = -139.093
+margin_right = 596.947
+margin_bottom = -64.2934
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
@@ -104,10 +256,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = -109.76
-margin_right = 554.28
-margin_bottom = -13.26
+margin_left = 37.5467
+margin_top = -99.0934
+margin_right = 596.947
+margin_bottom = -2.59338
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
@@ -120,10 +272,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = -29.76
-margin_right = 554.28
-margin_bottom = 45.04
+margin_left = 37.5467
+margin_top = -19.0934
+margin_right = 596.947
+margin_bottom = 55.7066
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 49 )
@@ -136,10 +288,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = 10.24
-margin_right = 554.28
-margin_bottom = 106.74
+margin_left = 37.5467
+margin_top = 20.9066
+margin_right = 596.947
+margin_bottom = 117.407
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
@@ -152,10 +304,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = 50.24
-margin_right = 554.28
-margin_bottom = 146.74
+margin_left = 37.5467
+margin_top = 60.9066
+margin_right = 596.947
+margin_bottom = 157.407
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
@@ -168,10 +320,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = 90.24
-margin_right = 554.28
-margin_bottom = 186.74
+margin_left = 37.5467
+margin_top = 100.907
+margin_right = 596.947
+margin_bottom = 197.407
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
@@ -184,10 +336,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = 130.24
-margin_right = 554.28
-margin_bottom = 226.74
+margin_left = 37.5467
+margin_top = 140.907
+margin_right = 596.947
+margin_bottom = 237.407
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
@@ -200,10 +352,10 @@ anchor_left = 0.004
 anchor_top = 0.083
 anchor_right = 0.149
 anchor_bottom = 0.118
-margin_left = -5.12
-margin_top = 170.24
-margin_right = 554.28
-margin_bottom = 266.74
+margin_left = 37.5467
+margin_top = 180.907
+margin_right = 596.947
+margin_bottom = 277.407
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )

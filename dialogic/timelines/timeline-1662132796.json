@@ -17,7 +17,7 @@
 
 			],
 			"portrait": "",
-			"question": "Do you want to up a shield2?"
+			"question": "Do you want to up a health potion?"
 		},
 		{
 			"choice": "Yes",
@@ -30,10 +30,10 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You picked up a Shield2"
+			"text": "You picked up a health potion"
 		},
 		{
-			"emit_signal": "Shield2",
+			"emit_signal": "Health Potion",
 			"event_id": "dialogic_040"
 		},
 		{
@@ -61,6 +61,6 @@
 	"metadata": {
 		"dialogic-version": "1.4.3",
 		"file": "timeline-1662132796.json",
-		"name": "Shield2"
+		"name": "Health Potion"
 	}
 }
