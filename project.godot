@@ -105,7 +105,10 @@ settings/stdout/print_fps=true
 
 window/size/width=1280
 window/size/height=720
+window/size/fullscreen=true
 window/vsync/use_vsync=false
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

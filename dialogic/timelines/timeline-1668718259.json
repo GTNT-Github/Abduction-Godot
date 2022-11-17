@@ -23,7 +23,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You told Guard 1 that he was good at his job.[br]He became very happy."
+			"text": "You told Guard 2 hat you hate humans too[br]He is fine with your existence now"
 		},
 		{
 			"event_id": "dialogic_013"
@@ -38,7 +38,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You told Guard 1 that his snakeyness was enough to become a guard[br]He became very happy."
+			"text": "You told Guard2 that your fine with Sneeks[br]He is fine with you now"
 		},
 		{
 			"event_id": "dialogic_013"
@@ -62,7 +62,7 @@
 	],
 	"metadata": {
 		"dialogic-version": "1.4.3",
-		"file": "timeline-1663529534.json",
-		"name": "Guard1Act3"
+		"file": "timeline-1668718259.json",
+		"name": "Guard2Act2"
 	}
 }

@@ -24,7 +24,7 @@ var currentEnemy
 var itemTypes = {
 	"Shield" : "Armor",
 	"Health Potion" : "Health",
-	"BlueKeycard" : "Keycard"
+	"Blue Keycard" : "Keycard"
 }
 
 var itemStats = {
@@ -56,7 +56,8 @@ var flickrValues = {
 }
 
 var actValues = {
-	"Guard1": ["Insult","Compliment"]
+	"Guard1": ["Insult","Compliment"],
+	"Guard2": ["Cheer","Talk"]
 }
 
 var attackValues = {
@@ -73,7 +74,26 @@ var attackValues = {
 		"ProjectileVel": Vector2(0,-200),
 		"Attack": 10,
 		"Drops": true,
-		"Drop": "BlueKeycard"
+		"Drop": "Blue Keycard",
+		"CameraPosition": Vector2(648,840),
+		"Zoom":Vector2(1,1)
+		},
+	"Guard2": {
+		"AttackDir": "Left-Right",
+		"Left": Vector2(1848,787),
+		"Right": Vector2(1848,1171),
+		"End": Vector2(1848,979),
+		"Duration": 5,
+		"StartDuration": 1,
+		"Direction": "Right",
+		"Attacks": 0,
+		"ProjectileDistance": 0.5,
+		"ProjectileVel": Vector2(-200,0),
+		"Attack": 15,
+		"Drops": true,
+		"Drop": "Red Keycard",
+		"CameraPosition": Vector2(1870,1027),
+		"Zoom":Vector2(1.1,1.1)
 		}
 }
 
@@ -90,6 +110,6 @@ var fightButtons = {
 	"Act1": "Right/Text/Act1",
 	"Act2": "Right/Text/Act2",
 	"Act3": "Right/Text/Act3",
-	"Act4": "Right/Text/Act4",
-	"Act5": "Right/Text/Act5",
+#	"Act4": "Right/Text/Act4",
+#	"Act5": "Right/Text/Act5",
 }

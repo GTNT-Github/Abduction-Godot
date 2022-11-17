@@ -16,6 +16,10 @@ func startFight(area: Area2D, enemy: String) -> void:
 		Values.fightState = "menu"
 		Dialogic.set_variable("Fight","true")
 		
+		$Right/Act.visible = true
+		$Left/Items.visible = true
+		
+		
 		var areaNode = get_node("/root/MainGame/BattleCollisions/"+enemy)
 		areaNode.queue_free()
 		
@@ -25,7 +29,7 @@ func startFight(area: Area2D, enemy: String) -> void:
 		for n in InvFunctions.inventory.size():
 			get_node(str("Left/Text/Slot",n+1)).text = InvFunctions.inventory[n]
 		for n in Values.actValues[Values.currentEnemy].size():
-			get_node(str("Right/Text/Act",n+3)).text = Values.actValues[Values.currentEnemy][n]
+			get_node(str("Right/Text/Act",n+2)).text = Values.actValues[Values.currentEnemy][n]
 		
 		setButton("Act","Items","button")
 		flicker()
@@ -39,12 +43,12 @@ func flicker() -> void:
 		if n%2 == 0:
 			$Flicker.visible = false
 			rect_scale = Values.flickrValues[n]
-			GeneralFunc.playSound("fightStart")
+#			GeneralFunc.playSound("fightStart")
 			if n == 4:
 				get_node("/root/MainGame/Player/Player").global_position = Vector2(648,840)
-				get_node("/root/MainGame/Player/Player").zoom = Vector2(1,1)
+				get_node("/root/MainGame/Player/Player").zoom =  Values.attackValues[Values.currentEnemy]["Zoom"]
 				playText(Values.currentEnemy+"Approach")
-				GeneralFunc.playMusic("fightSong")
+#				GeneralFunc.playMusic("fightSong")
 		else:
 			$Flicker.visible = true
 
@@ -84,13 +88,13 @@ func _input(event: InputEvent) -> void:
 		elif event.is_action_pressed("ui_down") && Values.fightState == "text":
 			var selectedText = int(Values.selectedText[Values.selectedText.length()-1])
 			#Check boundaries for acts
-			if selectedText < 4 && Values.selectedMenu != "Items":
+			if selectedText < 3 && Values.selectedMenu != "Items":
 				var selectedButton = Values.selectedText
 				selectedButton[selectedButton.length()-1] = str(selectedText+1)
 				setButton(Values.selectedText,selectedButton,"text")
 
 			#Check boundaries for items
-			elif selectedText < 4 && Values.selectedMenu != "Act" && get_node(str("Left/Text/Slot",selectedText+1)).text != "-----":
+			elif selectedText < 5 && Values.selectedMenu != "Act" && get_node(str("Left/Text/Slot",selectedText+1)).text != "-----":
 				var selectedButton = Values.selectedText
 				selectedButton[selectedButton.length()-1] = str(selectedText+1)
 				setButton(Values.selectedText,selectedButton,"text")
@@ -112,12 +116,13 @@ func _input(event: InputEvent) -> void:
 				useItem(selectedItem,selectedSlot)
 			elif Values.selectedMenu == "Act":
 				var selectedAct = Values.selectedText
+				print(Values.currentEnemy+selectedAct)
 				playText(Values.currentEnemy+selectedAct)
 
 #Set camera position if enemy is set
 func _process(_delta: float) -> void:
 	if Values.currentEnemy:
-		get_node("/root/MainGame/Player/Player").global_position = Vector2(648,840)
+		get_node("/root/MainGame/Player/Player").global_position = Values.attackValues[Values.currentEnemy]["CameraPosition"]
 
 #Set selected button/text
 func setButton(selectedButton, newButton,mode):
