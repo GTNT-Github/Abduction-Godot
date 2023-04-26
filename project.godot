@@ -97,10 +97,6 @@ GeneralFunc="*res://scripts/functions/GeneralFunc.gd"
 InvFunctions="*res://scripts/functions/InvFunctions.gd"
 DeathScene="*res://scenes/Death.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/width=1280
@@ -241,6 +237,7 @@ choice4={
 2d_physics/layer_4="Items"
 2d_physics/layer_5="FightCollisions"
 2d_physics/layer_6="Projectile"
+2d_physics/layer_7="FightBarrier"
 
 [logging]
 

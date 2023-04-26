@@ -24,7 +24,8 @@ var currentEnemy
 var itemTypes = {
 	"Shield" : "Armor",
 	"Health Potion" : "Health",
-	"Blue Keycard" : "Keycard"
+	"Blue Keycard" : "Keycard",
+	"Red Keycard" : "Keycard"
 }
 
 var itemStats = {

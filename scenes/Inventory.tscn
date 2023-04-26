@@ -10,6 +10,7 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=50]
 size = 80
+extra_spacing_bottom = 10
 font_data = ExtResource( 3 )
 
 [node name="Background" type="Sprite"]
@@ -29,9 +30,9 @@ custom_constants/separation = 220
 alignment = 1
 
 [node name="Profile" type="VBoxContainer" parent="Inventory"]
-margin_top = 121.0
+margin_top = 86.0
 margin_right = 968.0
-margin_bottom = 381.0
+margin_bottom = 346.0
 custom_constants/separation = 60
 alignment = 1
 
@@ -57,9 +58,9 @@ valign = 1
 autowrap = true
 
 [node name="Armor" type="VBoxContainer" parent="Inventory"]
-margin_top = 601.0
+margin_top = 566.0
 margin_right = 968.0
-margin_bottom = 841.0
+margin_bottom = 816.0
 custom_constants/separation = 60
 alignment = 1
 
@@ -76,7 +77,7 @@ autowrap = true
 [node name="ArmorSlot" type="Label" parent="Inventory/Armor"]
 margin_top = 160.0
 margin_right = 968.0
-margin_bottom = 240.0
+margin_bottom = 250.0
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
@@ -85,9 +86,9 @@ valign = 1
 autowrap = true
 
 [node name="Weapon" type="VBoxContainer" parent="Inventory"]
-margin_top = 1061.0
+margin_top = 1036.0
 margin_right = 968.0
-margin_bottom = 1301.0
+margin_bottom = 1286.0
 custom_constants/separation = 60
 alignment = 1
 
@@ -104,7 +105,7 @@ autowrap = true
 [node name="WeaponSlot" type="Label" parent="Inventory/Weapon"]
 margin_top = 160.0
 margin_right = 968.0
-margin_bottom = 240.0
+margin_bottom = 250.0
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
@@ -113,9 +114,9 @@ valign = 1
 autowrap = true
 
 [node name="Items" type="VBoxContainer" parent="Inventory"]
-margin_top = 1521.0
+margin_top = 1506.0
 margin_right = 968.0
-margin_bottom = 2321.0
+margin_bottom = 2356.0
 custom_constants/separation = 60
 alignment = 1
 
@@ -132,7 +133,7 @@ autowrap = true
 [node name="InvSlot1" type="Label" parent="Inventory/Items"]
 margin_top = 160.0
 margin_right = 968.0
-margin_bottom = 240.0
+margin_bottom = 250.0
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
@@ -141,9 +142,9 @@ valign = 1
 autowrap = true
 
 [node name="InvSlot2" type="Label" parent="Inventory/Items"]
-margin_top = 300.0
+margin_top = 310.0
 margin_right = 968.0
-margin_bottom = 380.0
+margin_bottom = 400.0
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
@@ -152,9 +153,9 @@ valign = 1
 autowrap = true
 
 [node name="InvSlot3" type="Label" parent="Inventory/Items"]
-margin_top = 440.0
+margin_top = 460.0
 margin_right = 968.0
-margin_bottom = 520.0
+margin_bottom = 550.0
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
@@ -163,9 +164,9 @@ valign = 1
 autowrap = true
 
 [node name="InvSlot4" type="Label" parent="Inventory/Items"]
-margin_top = 580.0
+margin_top = 610.0
 margin_right = 968.0
-margin_bottom = 660.0
+margin_bottom = 700.0
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
@@ -174,216 +175,12 @@ valign = 1
 autowrap = true
 
 [node name="InvSlot5" type="Label" parent="Inventory/Items"]
-margin_top = 720.0
+margin_top = 760.0
 margin_right = 968.0
-margin_bottom = 800.0
+margin_bottom = 850.0
 rect_pivot_offset = Vector2( 7, 0 )
 custom_fonts/font = SubResource( 50 )
 text = "-----"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="Name" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.042
-anchor_right = 0.149
-anchor_bottom = 0.076
-margin_left = 37.5467
-margin_top = -349.573
-margin_right = 596.947
-margin_bottom = -274.053
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 49 )
-text = "GTNT"
-align = 1
-valign = 1
-
-[node name="HP" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = -339.093
-margin_right = 596.947
-margin_bottom = -264.293
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 49 )
-text = "100/100"
-align = 1
-valign = 1
-
-[node name="Armor" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = -259.094
-margin_right = 596.947
-margin_bottom = -184.293
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 49 )
-text = "Armor"
-align = 1
-valign = 1
-
-[node name="ArmorSlot" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = -219.093
-margin_right = 596.947
-margin_bottom = -122.593
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 50 )
-text = "-----"
-align = 1
-valign = 1
-
-[node name="Weapon" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = -139.093
-margin_right = 596.947
-margin_bottom = -64.2934
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 49 )
-text = "Weapon"
-align = 1
-valign = 1
-
-[node name="WeaponSlot" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = -99.0934
-margin_right = 596.947
-margin_bottom = -2.59338
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 50 )
-text = "-----"
-align = 1
-valign = 1
-
-[node name="Items" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = -19.0934
-margin_right = 596.947
-margin_bottom = 55.7066
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 49 )
-text = "Items"
-align = 1
-valign = 1
-
-[node name="InvSlot1" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = 20.9066
-margin_right = 596.947
-margin_bottom = 117.407
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 50 )
-text = "-----"
-align = 1
-valign = 1
-
-[node name="InvSlot2" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = 60.9066
-margin_right = 596.947
-margin_bottom = 157.407
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 50 )
-text = "-----"
-align = 1
-valign = 1
-
-[node name="InvSlot3" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = 100.907
-margin_right = 596.947
-margin_bottom = 197.407
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 50 )
-text = "-----"
-align = 1
-valign = 1
-
-[node name="InvSlot4" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = 140.907
-margin_right = 596.947
-margin_bottom = 237.407
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 50 )
-text = "-----"
-align = 1
-valign = 1
-
-[node name="InvSlot5" type="Label" parent="."]
-visible = false
-anchor_left = 0.004
-anchor_top = 0.083
-anchor_right = 0.149
-anchor_bottom = 0.118
-margin_left = 37.5467
-margin_top = 180.907
-margin_right = 596.947
-margin_bottom = 277.407
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 50 )
-text = "-----"
-align = 1
-valign = 1

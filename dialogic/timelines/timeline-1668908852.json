@@ -2,19 +2,6 @@
 	"events": [
 		{
 			"condition": "",
-			"definition": "1664835429-787",
-			"event_id": "dialogic_012",
-			"value": "true"
-		},
-		{
-			"event_id": "dialogic_024",
-			"set_theme": "theme-1661467268.cfg"
-		},
-		{
-			"event_id": "dialogic_013"
-		},
-		{
-			"condition": "",
 			"definition": "1664835188-648",
 			"event_id": "dialogic_012",
 			"value": "false"
@@ -52,7 +39,7 @@
 	],
 	"metadata": {
 		"dialogic-version": "1.4.3",
-		"file": "timeline-1664834923.json",
-		"name": "Blue KeycardUse"
+		"file": "timeline-1668908852.json",
+		"name": "Red KeycardUse"
 	}
 }

@@ -36,10 +36,18 @@ func _input(event: InputEvent) -> void:
 			elif Values.itemTypes[currentItem] == "Keycard":
 				var dialouge = Dialogic.start(currentItem+"Use")
 				add_child(dialouge)
+			elif Values.itemTypes[currentItem] == "Health":
+				var dialouge = Dialogic.start(currentItem+"Use")
+				add_child(dialouge)
+				Values.HP += Values.itemStats[currentItem]
+				Values.HP = 100 if Values.HP > 100 else Values.HP
+				InvFunctions.inventory[selectedSlot-1] = "-----"
+				resetInv()
 
 func resetInv():
 	$"Inventory/Armor/ArmorSlot".text = InvFunctions.armor
 	$"Inventory/Weapon/WeaponSlot".text = InvFunctions.weapon
+	$"Inventory/Profile/HP".text = str(Values.HP,"/100")
 	for n in InvFunctions.inventory.size():
 		get_node(str("Inventory/Items/InvSlot",n+1)).text = InvFunctions.inventory[n]
 		get_node(str("Inventory/Items/InvSlot",n+1)).add_color_override("font_color",Color(1,1,1))

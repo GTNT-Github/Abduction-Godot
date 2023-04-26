@@ -115,8 +115,9 @@ func _input(event: InputEvent) -> void:
 				var selectedItem = InvFunctions.inventory[selectedSlot]
 				useItem(selectedItem,selectedSlot)
 			elif Values.selectedMenu == "Act":
+				
+				print(Values.selectedText)
 				var selectedAct = Values.selectedText
-				print(Values.currentEnemy+selectedAct)
 				playText(Values.currentEnemy+selectedAct)
 
 #Set camera position if enemy is set
@@ -151,7 +152,16 @@ func useItem(item:String,slot:int):
 		playText(item+"Use")
 		InvFunctions.setArmor(slot)
 		resetInv(slot)
-
+	elif Values.itemTypes[item] == "Keycard":
+		playText(item+"Use")
+	elif Values.itemTypes[item] == "Health":
+		playText(item+"Use")
+		Values.HP += Values.itemStats[item]
+		Values.HP = 100 if Values.HP > 100 else Values.HP
+		InvFunctions.inventory[slot] = "-----"
+		InvFunctions.resetInventory()
+		resetInv(slot)
+		
 #Reset inventory slots
 func resetInv(slot):
 	$"Top/Armor".text = "Armor:\n"+InvFunctions.armor
@@ -160,9 +170,10 @@ func resetInv(slot):
 		get_node(str("Left/Text/Slot",n+1)).text = InvFunctions.inventory[n]
 		get_node(str("Left/Text/Slot",n+1)).add_color_override("font_color",Color(1,1,1))
 	setButton(str("Items",slot+1),"Items1","text")
+	$Top/HPBack/HPBar.rect_scale = Vector2(Values.HP/100.0,1)
+	$Top/HPBack/HP.text = str(Values.HP,"/100")
 
-
-#Reset Menu screem
+#Reset Menu screen
 func resetMenu(spare):
 	if spare == "false":
 		setButton(Values.selectedButton,Values.selectedButton,"button")
@@ -188,6 +199,8 @@ func closeUI():
 		Values.currentEnemy = null
 		Values.fightState = "attack"
 		Dialogic.set_variable("Fight","false")
+		print(Values.selectedText)
+		setButton(Values.selectedText,"Act1","text")
 		get_node("/root/MainGame/Player/Player").position = Vector2(-2,-40)
 		get_node("/root/MainGame/Player/Player").zoom = Vector2(0.75,0.75)
 		GeneralFunc.stopMusic("fightSong")

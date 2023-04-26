@@ -25,3 +25,5 @@ func projectileTouch(area: Node) -> void:
 			InvFunctions.armor = InvFunctions.tempArmor
 			InvFunctions.weapon = InvFunctions.tempWeapon
 			get_tree().change_scene("res://scenes/Death.tscn")
+	if area.name == "Cell":
+		self.queue_free()

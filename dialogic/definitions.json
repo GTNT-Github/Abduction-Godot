@@ -4,10 +4,10 @@
 	],
 	"variables": [
 		{
-			"id": "1663529485-648",
-			"name": "ActRandom",
+			"id": "1664835429-787",
+			"name": "Fight",
 			"type": 0,
-			"value": "0"
+			"value": "false"
 		},
 		{
 			"id": "1664835188-648",
@@ -16,10 +16,10 @@
 			"value": "false"
 		},
 		{
-			"id": "1664835429-787",
-			"name": "Fight",
+			"id": "1663529485-648",
+			"name": "ActRandom",
 			"type": 0,
-			"value": "false"
+			"value": "0"
 		},
 		{
 			"id": "1661477242-648",
