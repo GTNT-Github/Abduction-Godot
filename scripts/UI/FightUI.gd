@@ -43,12 +43,12 @@ func flicker() -> void:
 		if n%2 == 0:
 			$Flicker.visible = false
 			rect_scale = Values.flickrValues[n]
-#			GeneralFunc.playSound("fightStart")
+			GeneralFunc.playSound("fightStart")
 			if n == 4:
 				get_node("/root/MainGame/Player/Player").global_position = Vector2(648,840)
 				get_node("/root/MainGame/Player/Player").zoom =  Values.attackValues[Values.currentEnemy]["Zoom"]
 				playText(Values.currentEnemy+"Approach")
-#				GeneralFunc.playMusic("fightSong")
+				GeneralFunc.playMusic("fightSong")
 		else:
 			$Flicker.visible = true
 
@@ -124,6 +124,7 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if Values.currentEnemy:
 		get_node("/root/MainGame/Player/Player").global_position = Values.attackValues[Values.currentEnemy]["CameraPosition"]
+
 
 #Set selected button/text
 func setButton(selectedButton, newButton,mode):

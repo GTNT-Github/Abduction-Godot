@@ -19,6 +19,8 @@ func attack(spare):
 	
 	elif enemyValues["AttackDir"] == "Left-Right":
 		leftRight(enemyNode,enemyValues,spare)
+	elif enemyValues["AttackDir"] == "Circle":
+		circle(enemyNode,enemyValues,spare)
 	
 
 func leftRight(enemyNode,enemyValues,spare):
@@ -62,9 +64,27 @@ func leftRight(enemyNode,enemyValues,spare):
 	Values.fightState = "menu"
 	timer.stop()
 
+func circle(enemyNode,enemyValues,spare):
+
+	#Get attack direction
+	for i in 720:
+		i-=360
+		enemyValues["Rotation"] = i
+		spawnProjectile(enemyNode,enemyValues,spare)
+	
+	#Reset fight UI
+	timer.wait_time = 4
+	timer.start()
+	yield(timer,"timeout")
+	$"/root/MainGame/UI/FightUI".resetMenu(spare)
+	Values.fightState = "menu"
+	timer.stop()
+	
 func spawnProjectile(enemyNode,enemyValues,spare):
 	var projectile = Projectile.instance()
 	projectile.Velocity = Vector2(enemyValues["ProjectileVel"])
+	if enemyValues.has("Rotation"):
+		projectile.rotation = enemyValues["Rotation"]
 	projectile.Spare = spare
 	projectile.position = enemyNode.position
 	add_child(projectile)

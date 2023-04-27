@@ -8,11 +8,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Guard 2: Attack 15[br]Its a guard boi"
-		},
-		{
-			"emit_signal": "false",
-			"event_id": "dialogic_040"
+			"text": "Guard 1 approaches!"
 		},
 		{
 			"event_id": "dialogic_022",
@@ -20,8 +16,8 @@
 		}
 	],
 	"metadata": {
-		"dialogic-version": "1.4.3",
-		"file": "timeline-1668717591.json",
-		"name": "Guard2Act1"
+		"dialogic-version": "1.4.5",
+		"file": "Guard1Approach.json",
+		"name": "Guard1Approach"
 	}
 }

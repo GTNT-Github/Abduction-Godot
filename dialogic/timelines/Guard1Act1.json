@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1661467268.cfg"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Guard 1: Attack 10[br]A very easy enemy"
+		},
+		{
+			"emit_signal": "false",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "Guard1Act1.json",
+		"name": "Guard1Act1"
+	}
+}

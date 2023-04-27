@@ -247,7 +247,6 @@ func add_answer_to_question(stringData):
 
 
 func change_theme(newTheme: ConfigFile):
-
 	if get_parent().settings.get_value('history', 'enable_dynamic_theme', false):
 		curTheme = newTheme
 

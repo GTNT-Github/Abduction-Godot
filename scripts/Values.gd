@@ -58,7 +58,8 @@ var flickrValues = {
 
 var actValues = {
 	"Guard1": ["Insult","Compliment"],
-	"Guard2": ["Cheer","Talk"]
+	"Guard2": ["Cheer","Talk"],
+	"Guard3": ["Poke", "Honor"]
 }
 
 var attackValues = {
@@ -95,6 +96,20 @@ var attackValues = {
 		"Drop": "Red Keycard",
 		"CameraPosition": Vector2(1870,1027),
 		"Zoom":Vector2(1.1,1.1)
+		},
+	"Guard3": {
+		"AttackDir": "Circle",
+		"Duration": 5,
+		"StartDuration": 1,
+		"Attacks": 0,
+		"ProjectileDistance": 0.5,
+		"ProjectileVel": Vector2(-200,0),
+		"Attack": 20,
+		"Drops": true,
+		"Drop": "Green Keycard",
+		"CameraPosition": Vector2(3410, 407),
+		"Zoom":Vector2(1.2,1.2),
+		"Rotation":-360
 		}
 }
 

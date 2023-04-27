@@ -1,0 +1,45 @@
+{
+	"events": [
+		{
+			"condition": "",
+			"definition": "1664835188-648",
+			"event_id": "dialogic_012",
+			"value": "false"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Find a lock to use this keycard!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1664835188-648",
+			"event_id": "dialogic_012",
+			"value": "true"
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://assets/sound/lockEnter.wav",
+			"volume": 0
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "Green KeycardUse.json",
+		"name": "Green KeycardUse"
+	}
+}

@@ -8,10 +8,10 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You befriended Guard 1[br]He gave you a keycard!"
+			"text": "Guard 3: Attack 20[br]Learn how walls work ... fast"
 		},
 		{
-			"emit_signal": "spare",
+			"emit_signal": "false",
 			"event_id": "dialogic_040"
 		},
 		{
@@ -20,8 +20,8 @@
 		}
 	],
 	"metadata": {
-		"dialogic-version": "1.4.3",
-		"file": "timeline-1663529578.json",
-		"name": "Guard1Befriend"
+		"dialogic-version": "1.4.5",
+		"file": "Guard3Act1.json",
+		"name": "Guard3Act1"
 	}
 }

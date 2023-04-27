@@ -17,7 +17,7 @@
 
 			],
 			"portrait": "",
-			"question": "Do you want to up the red keycard?"
+			"question": "Do you want to up the green keycard?"
 		},
 		{
 			"choice": "Yes",
@@ -30,10 +30,10 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You picked up the red keycard"
+			"text": "You picked up the green keycard"
 		},
 		{
-			"emit_signal": "Red Keycard",
+			"emit_signal": "Green Keycard",
 			"event_id": "dialogic_040"
 		},
 		{
@@ -59,8 +59,8 @@
 		}
 	],
 	"metadata": {
-		"dialogic-version": "1.4.3",
-		"file": "timeline-1668908930.json",
-		"name": "Red Keycard"
+		"dialogic-version": "1.4.5",
+		"file": "Green Keycard.json",
+		"name": "Green Keycard"
 	}
 }

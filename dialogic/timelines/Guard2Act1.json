@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1661467268.cfg"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Guard 2: Attack 15[br]Its a guard boi"
+		},
+		{
+			"emit_signal": "false",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "Guard2Act1.json",
+		"name": "Guard2Act1"
+	}
+}

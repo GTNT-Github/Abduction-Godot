@@ -8,7 +8,11 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Guard 1 approaches!"
+			"text": "You befriended Guard 3[br]He dropped a keycard"
+		},
+		{
+			"emit_signal": "spare",
+			"event_id": "dialogic_040"
 		},
 		{
 			"event_id": "dialogic_022",
@@ -16,8 +20,8 @@
 		}
 	],
 	"metadata": {
-		"dialogic-version": "1.4.3",
-		"file": "timeline-1663528332.json",
-		"name": "Guard1Approach"
+		"dialogic-version": "1.4.5",
+		"file": "Guard3Befriend.json",
+		"name": "Guard3Befriend"
 	}
 }

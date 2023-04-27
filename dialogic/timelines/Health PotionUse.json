@@ -17,7 +17,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Defense: 10%[br]You equiped a shield"
+			"text": "Health: +10[br]You drank a health potion"
 		},
 		{
 			"emit_signal": "false",
@@ -29,8 +29,8 @@
 		}
 	],
 	"metadata": {
-		"dialogic-version": "1.4.3",
-		"file": "timeline-1663980974.json",
-		"name": "ShieldUse"
+		"dialogic-version": "1.4.5",
+		"file": "Health PotionUse.json",
+		"name": "Health PotionUse"
 	}
 }

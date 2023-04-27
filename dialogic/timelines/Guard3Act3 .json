@@ -23,7 +23,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You told Guard 2 hat you hate humans too[br]He is fine with your existence now"
+			"text": "You tell Guard 3 you respect him[br]He likes you more than he did"
 		},
 		{
 			"event_id": "dialogic_013"
@@ -38,7 +38,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You told Guard2 that your fine with Sneeks[br]He is fine with you now"
+			"text": "You tell Guard 3 you don't mind if he wins[br]He respects that"
 		},
 		{
 			"event_id": "dialogic_013"
@@ -57,12 +57,12 @@
 		},
 		{
 			"event_id": "dialogic_022",
-			"transition_duration": 0
+			"transition_duration": 1
 		}
 	],
 	"metadata": {
-		"dialogic-version": "1.4.3",
-		"file": "timeline-1668718259.json",
-		"name": "Guard2Act2"
+		"dialogic-version": "1.4.5",
+		"file": "Guard3Act3 .json",
+		"name": "Guard3Act3"
 	}
 }
