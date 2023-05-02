@@ -10,9 +10,9 @@ func playSound(sound):
 	soundNode.play()
 
 func playMusic(song):
-	var musicNode = get_node("/root/MainGame/Music/"+song)
+	var musicNode = get_node("/root/MainMenu/Music/"+song)
 	musicNode.play()
 
 func stopMusic(song):
-	var musicNode = get_node("/root/MainGame/Music/"+song)
+	var musicNode = get_node("/root/MainMenu/Music/"+song)
 	musicNode.stop()

@@ -20,7 +20,7 @@ func startFight(area: Area2D, enemy: String) -> void:
 		$Left/Items.visible = true
 		
 		
-		var areaNode = get_node("/root/MainGame/BattleCollisions/"+enemy)
+		var areaNode = get_node("/root/Level1/BattleCollisions/"+enemy)
 		areaNode.queue_free()
 		
 		#Set act and inventory
@@ -45,8 +45,11 @@ func flicker() -> void:
 			rect_scale = Values.flickrValues[n]
 			GeneralFunc.playSound("fightStart")
 			if n == 4:
-				get_node("/root/MainGame/Player/Player").global_position = Vector2(648,840)
-				get_node("/root/MainGame/Player/Player").zoom =  Values.attackValues[Values.currentEnemy]["Zoom"]
+				get_node("/root/Level1/Fight").global_position = Values.attackValues[Values.currentEnemy]["CameraPosition"]
+				get_node("/root/Level1/Fight").zoom =  Values.attackValues[Values.currentEnemy]["Zoom"]
+				get_node("/root/Level1/Fight/Collision").scale =  Values.attackValues[Values.currentEnemy]["Zoom"]
+				get_node("/root/Level1/Fight").current = true
+				get_node("/root/Level1/Player/Player").current = false
 				playText(Values.currentEnemy+"Approach")
 				GeneralFunc.playMusic("fightSong")
 		else:
@@ -116,14 +119,8 @@ func _input(event: InputEvent) -> void:
 				useItem(selectedItem,selectedSlot)
 			elif Values.selectedMenu == "Act":
 				
-				print(Values.selectedText)
 				var selectedAct = Values.selectedText
 				playText(Values.currentEnemy+selectedAct)
-
-#Set camera position if enemy is set
-func _process(_delta: float) -> void:
-	if Values.currentEnemy:
-		get_node("/root/MainGame/Player/Player").global_position = Values.attackValues[Values.currentEnemy]["CameraPosition"]
 
 
 #Set selected button/text
@@ -143,7 +140,7 @@ func playText(text) -> Object:
 	$"Right/Text".visible = false
 	
 	var dialouge = Dialogic.start(text)
-	dialouge.connect("dialogic_signal",get_node("/root/MainGame/Enemy"),"attack")
+	dialouge.connect("dialogic_signal",get_node("/root/Level1/Enemy"),"attack")
 	add_child(dialouge)
 	return dialouge
 
@@ -200,13 +197,18 @@ func closeUI():
 		Values.currentEnemy = null
 		Values.fightState = "attack"
 		Dialogic.set_variable("Fight","false")
-		print(Values.selectedText)
 		setButton(Values.selectedText,"Act1","text")
-		get_node("/root/MainGame/Player/Player").position = Vector2(-2,-40)
-		get_node("/root/MainGame/Player/Player").zoom = Vector2(0.75,0.75)
+		get_node("/root/Level1/Player/Player").position = Vector2(-2,-40)
+		get_node("/root/Level1/Player/Player").zoom = Vector2(0.75,0.75)
 		GeneralFunc.stopMusic("fightSong")
 		yield($Tween,"tween_all_completed")
 	
+		get_node("/root/Level1/Player/Player").global_position = get_node("/root/Level1/Fight").position
+		get_node("/root/Level1/Player/Player").current = true
+		get_node("/root/Level1/Player/Player").position = Vector2(0,0)
+		get_node("/root/Level1/Fight").current = false
+		get_node("/root/Level1/Fight").position = Vector2(-1100,-550)
+				
 		self.visible = true
 		if attackValues["Drops"]:
-			get_node("/root/MainGame/Items").showItem(attackValues["Drop"])
+			get_node("/root/Level1/Items").showItem(attackValues["Drop"])

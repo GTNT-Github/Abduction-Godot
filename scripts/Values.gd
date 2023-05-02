@@ -16,6 +16,7 @@ var selectedItem
 var selectedSign
 var selectedButton
 var selectedText
+var selectedLock
 var fightState = "attack"
 var selectedMenu
 var currentEnemy
@@ -25,7 +26,8 @@ var itemTypes = {
 	"Shield" : "Armor",
 	"Health Potion" : "Health",
 	"Blue Keycard" : "Keycard",
-	"Red Keycard" : "Keycard"
+	"Red Keycard" : "Keycard",
+	"Green Keycard" : "Keycard"
 }
 
 var itemStats = {
@@ -38,11 +40,14 @@ var itemStats = {
 #Sound Vales
 var sounds = {
 	"fightStart": preload("res://assets/sound/fightStart.wav"),
-	"select": preload("res://assets/sound/select.wav")
+	"select": preload("res://assets/sound/select.wav"),
+	"lockEnter": preload("res://assets/sound/lockEnter.wav"),
+	"wallFall": preload("res://assets/sound/wallFall.wav")
 }
 
 var music = {
-	"fightSong": preload("res://assets/music/fightSong.wav")
+	"fightSong": preload("res://assets/music/fightSong.wav"),
+	"startTheme": preload("res://assets/music/startTheme.wav")
 }
 
 

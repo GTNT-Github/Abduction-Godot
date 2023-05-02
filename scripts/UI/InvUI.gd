@@ -8,7 +8,7 @@ func _ready():
 func _input(event: InputEvent) -> void:
 
 	#Open Inventory
-	if event.is_action("ui_select") && event.is_pressed() && !Values.selectedItem && !Values.selectedSign && GeneralFunc.checkUI() && !Values.currentEnemy:
+	if event.is_action("ui_select") && event.is_pressed() && !Values.selectedItem && !Values.selectedSign && GeneralFunc.checkUI() && !Values.currentEnemy && !Values.selectedLock:
 		Values.invOpen = true
 		self.visible = true
 		resetInv()

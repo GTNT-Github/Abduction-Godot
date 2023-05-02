@@ -25,7 +25,6 @@ func setWeapon(invSlot:int):
 		removeItem(invSlot)
 
 func addItem(item:String):
-	print(item)
 	for n in inventory.size():
 		var i = inventory[n]
 		if i != "-----":

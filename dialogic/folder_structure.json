@@ -46,7 +46,8 @@
 		},
 		"Timelines": {
 			"files": [
-				"Death.json"
+				"Death.json",
+				"timeline-1682900464.json"
 			],
 			"folders": {
 				"Guard1": {
@@ -78,7 +79,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"Guard3": {
@@ -94,7 +95,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"Items": {
@@ -110,12 +111,13 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"Signs": {
 					"files": [
-						"SpawnSign.json"
+						"SpawnSign.json",
+						"WallSign.json"
 					],
 					"folders": {
 
@@ -138,7 +140,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				}
 			},

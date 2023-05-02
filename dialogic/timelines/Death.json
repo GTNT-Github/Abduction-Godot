@@ -13,6 +13,11 @@
 			"volume": 5
 		},
 		{
+			"block_input": true,
+			"event_id": "dialogic_050",
+			"wait_time": 0
+		},
+		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
@@ -63,7 +68,7 @@
 	],
 	"metadata": {
 		"dialogic-version": "1.4.5",
-		"file": "timeline-1664634986.json",
+		"file": "Death.json",
 		"name": "Death"
 	}
 }

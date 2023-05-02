@@ -14,7 +14,7 @@ func attack(spare):
 	#Check enemy attack type
 	if spare == "spare":
 		get_node(Values.currentEnemy).visible = false
-		$"/root/MainGame/UI/FightUI".closeUI()
+		$"/root/Level1/UI/FightUI".closeUI()
 		
 	
 	elif enemyValues["AttackDir"] == "Left-Right":
@@ -45,7 +45,7 @@ func leftRight(enemyNode,enemyValues,spare):
 	direction = "Right" if direction == "Left" else "Left"
 	enemyValues["Attacks"] += 1
 	enemyValues["Direction"] = direction
-	
+
 	spawnProjectile(enemyNode,enemyValues,spare)
 	#Projectiles
 	timer.wait_time = enemyValues["ProjectileDistance"]
@@ -60,7 +60,7 @@ func leftRight(enemyNode,enemyValues,spare):
 	timer.start()
 	timer.disconnect("timeout",self,"spawnProjectile")
 	yield(timer,"timeout")
-	$"/root/MainGame/UI/FightUI".resetMenu(spare)
+	$"/root/Level1/UI/FightUI".resetMenu(spare)
 	Values.fightState = "menu"
 	timer.stop()
 
@@ -76,13 +76,19 @@ func circle(enemyNode,enemyValues,spare):
 	timer.wait_time = 4
 	timer.start()
 	yield(timer,"timeout")
-	$"/root/MainGame/UI/FightUI".resetMenu(spare)
+	$"/root/Level1/UI/FightUI".resetMenu(spare)
 	Values.fightState = "menu"
 	timer.stop()
 	
 func spawnProjectile(enemyNode,enemyValues,spare):
 	var projectile = Projectile.instance()
 	projectile.Velocity = Vector2(enemyValues["ProjectileVel"])
+	if enemyValues.has("Direction"):
+		var projectile2 = Projectile.instance()
+		projectile2.Velocity = Vector2(enemyValues["ProjectileVel"])*-1
+		projectile2.Spare = spare
+		projectile2.position = enemyNode.position
+		add_child(projectile2)
 	if enemyValues.has("Rotation"):
 		projectile.rotation = enemyValues["Rotation"]
 	projectile.Spare = spare

@@ -87,7 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Abduction"
-run/main_scene="res://scenes/MainGame.tscn"
+run/main_scene="res://scenes/Level1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -102,7 +102,6 @@ DeathScene="*res://scenes/Death.tscn"
 window/size/width=1280
 window/size/height=720
 window/size/fullscreen=true
-window/vsync/use_vsync=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

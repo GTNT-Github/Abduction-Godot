@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[color=#8b0000]Walls[/color] can block projectiles"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "WallSign.json",
+		"name": "WallSign"
+	}
+}

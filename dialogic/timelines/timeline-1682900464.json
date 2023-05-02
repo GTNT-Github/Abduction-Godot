@@ -1,0 +1,137 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1664635153.cfg"
+		},
+		{
+			"audio_bus": "Master",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "res://assets/music/mainTheme.wav",
+			"volume": 0
+		},
+		{
+			"block_input": true,
+			"event_id": "dialogic_050",
+			"wait_time": 0
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.1]Long ago, there was a thriving, snakey, alien race called the Sneeks."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.7]They had a beautiful home planet, called Snook."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.28]But one fateful day, an asteroid was spotted heading for their planet."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.42]Thankfully, all the Sneeks escaped, but their home was no more."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.66]So, the king Sneek began his search for a new home."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.56]After many years of searching, they finally found Earth."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=1.97]However, Earth was inhabited by Humans, a comparatively primitive race to the Sneeks."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.76]Thus, the king Sneek decided to conquer Earth,"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.54]as the Sneeks to this point had no concept of friendship."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.82]At first he thought of a full scale attack,"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.96]but his officers ruled against that."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.2]They decided to instead abduct a Human to see if that was possible."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=3.08]And that is where you come in."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.94]You have been abducted by the Sneeks."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=3.04]You must escape their spaceship,"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=2.82]You must convince them not to invade Earth."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[nw=3.04]And save humanity from perishing"
+		},
+		{
+			"emit_signal": "over",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1682900464.json",
+		"name": "MainMenu"
+	}
+}
